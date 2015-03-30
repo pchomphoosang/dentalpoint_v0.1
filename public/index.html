@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Pawatify</title>
+    <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="./assets/css/jquery.multiselect.css" rel="stylesheet">
+    <link href="./assets/css/application.css" rel="stylesheet"> 
+  </head>
+  </body>
+      <div id="header-region"></div>
+      <div id="main-region" class="container">
+
+            <div class="container-full">
+
+                  <div class="row">
+                   
+                    <div class="col-lg-12 text-center v-center">
+                      
+                      <h1>Find your Dentist</h1>
+                      <p class="lead">comming soon</p>
+                      
+                      <br><br><br>
+                      
+                      <form class="form-inline">
+                        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
+                            <input class="form-control input-lg" placeholder="Enter your email address" type="text">
+                            <span class="input-group-btn">
+                              <button class="btn btn-lg btn-primary" type="button">OK</button>
+                            </span>
+                        </div>
+                      </form>
+                    </div>
+                    
+                  </div> <!-- /row -->
+              
+                  <div class="row">
+                   
+                    <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
+                      <a href="#"><i class="icon-google-plus"></i></a> <a href="#"><i class="icon-facebook"></i></a>  <a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-github"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
+                    </div>
+                  
+                  </div>
+              
+                <br><br><br><br><br>
+
+            </div> <!-- /container full -->
+            <div class="container">
+              
+                <hr>             
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="panel panel-default">
+                        <div class="panel-heading"><h3>Hello.</h3></div>
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                        Aliquam in felis sit amet augue.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="panel panel-default">
+                        <div class="panel-heading"><h3>Hello.</h3></div>
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                        Aliquam in felis sit amet augue.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="panel panel-default">
+                        <div class="panel-heading"><h3>Hello.</h3></div>
+                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+                        Aliquam in felis sit amet augue.
+                        </div>
+                      </div>
+                    </div>
+                </div>
+              
+              <div class="row">
+                    <div class="col-lg-12">
+                    <br><br>
+                      <p class="pull-right"><a href="http://www.bootply.com">Template from Bootply</a> &nbsp; ©Copyright 2013 ACME<sup>TM</sup> Brand.</p>
+                    <br><br>
+                    </div>
+                </div>
+            </div>
+
+      </div>  <!--end of main-->
+
+      <div id="dialog-region"></div>
+
+    <script type="text/template" id="header-template"> 
+
+          <div class="container">
+            <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><span class="ion-cube"></span> DENTAL Point</a> 
+            </div>
+
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <% if ( !login_status ) { %>
+                    <li><button type="button" id="loginlink" class="btn btn-default navbar-btn">Login / Create Account</button></li>
+                  <% } else { %>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                      <img src="">
+                      <%- email || firstName %><span class="caret"></span>
+                      </a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a id="profile" href="#account/profile/<%- user_id %>">
+                          <span class="ion-person"></span>My Account</a>
+                        </li>
+                        <li><a id="profile" href="#contacts">
+                          <span class="ion-person"></span>My Service</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a id="accountlogout" href="#">
+                          <span class="ion-log-out"></span>Logout</a>
+                        </li>
+                      </ul>
+                    </li>
+                  <% } %>
+              </ul>
+            </div>
+
+          </div>
+    </script>
+
+    <script type="text/template" id="provider-list">
+
+    </script>
+
+    <script type="text/template" id="provider-list-item">              
+      <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="well well-sm">
+                  <div class="row">
+                      <div class="col-sm-5 col-md-4">
+                          <img src="<%- pic %>" alt="" class="img-rounded img-responsive" />
+                      </div>
+                      <div class="col-sm-5 col-md-8">
+                          <h4>Dr.<%- firstName %> <%- lastName %></h4>
+                          <small><cite title="San Francisco, USA"><i class="glyphicon glyphicon-map-marker">
+                          </i>Bangkok,Thailand</cite></small>
+                          <p>
+                              <i class="glyphicon glyphicon-education"></i>General
+                              <br />
+                              <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                              <br />
+                              <i class="glyphicon glyphicon-earphone"></i>0976241010</p>
+                              <a href="#search/<%- id %>" class="btn btn-default "><i class="glyphicon glyphicon-eye-open"></i>View Detail</a>
+                      </div>
+                      <div class="col-sm-5 col-md-2">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="provider-list-item_backup">              
+          <img src="<%- pic %>" width="110" height="110">
+          <p class="recommend">
+            <span>Recommendations</span>
+            <br>
+          </p>
+          <button class="btn btn-small js-delete">
+            <i class="icon-remove"></i>
+            Delete
+          </button>
+          <a href="#providers/<%- id %>" class="btn btn-default"><i class="fa"></i>View Detail</a>
+    </script>
+    
+    <script type="text/template" id="missing-provider-view">
+      <div class="alert alert-error">This contact doesn't exist !</div>
+    </script>
+
+    <script type="text/template" id="loading-view">
+      <h1><%- title %></h1>
+      <p><%- message %></p>
+      <div id="spinner"></div>
+    </script>
+
+    <script type="text/template" id="provider-list-layout">
+      <div id="panel-region"></div>
+      <div id="contacts-region"></div>
+    </script>
+
+    <script type="text/template" id="search-panel">
+      <form class="form-search form-inline text-center">
+          <select class="search-doc">
+              <option >All Specialities</option>
+              <option >Dentist-General</option>
+              <option >Implantologists</option>
+              <option >Prosthodontists</option>
+              <option >Operative and Cosmetic Dentists</option>
+              <option >Orthodontists & Invisalign Specialist</option>
+              <option >Periodontists</option>
+              <option >Oral Surgeon</option>
+          </select>
+          <select class="search-location">
+              <option >ALL Location</option>
+              <option >Bangkok</option>
+              <option >Pattaya</option>
+              <option >Chiang Mai</option>
+              <option >Phuket</option>
+              <option >Krabi</option>
+          </select>
+          <div class="btn-group">
+              <button class="btn btn-primary btn-lg js-submit">Search</button>
+          </div>
+      </form>
+    </script>
+
+    <script type="text/template" id="provider-list-none">
+      <td colspan="3">No contacts to display</td>
+    </script>
+
+    <script type="text/template" id="paginated-view">
+      <div class="js-pagination-main"></div>
+      <div class="js-pagination-controls"></div>
+    </script>
+
+    <script type="text/template" id="pagination-controls">
+      <% if(totalPages > 1){ %>
+        <ul>
+          <% if(currentPage > 1){ %>
+            <li><a href="#<%= urlBase + 1 %>" class="navigatable" data-page="1">&laquo;</a></li>
+            <li><a href="#<%= urlBase  + previous %>" class="navigatable" data-page="<%= previous %>">&lsaquo;</a></li>
+          <% }else{ %>
+            <li class="disabled"><a href="#">&laquo;</a></li>
+            <li class="disabled"><a href="#">&lsaquo;</a></li>
+          <% } %>
+
+          <% if(pageSet[0] > 1 ){ %>
+            <li class="disabled"><a href="#">...</a></li>
+          <% } %>
+
+          <% _.each(pageSet, function(page){ %>
+            <% if(page === currentPage){ %>
+              <li class="active disabled"><a href="#"><%= page %></a></li>
+            <% }else{ %>
+              <li><a href="#<%= urlBase  + previous %>" class="navigatable" data-page="<%= page %>"><%= page %></a></li>
+            <% } %>
+          <% }); %>
+
+          <% if(pageSet[pageSet.length - 1] !== lastPage){ %>
+            <li class="disabled"><a href="#">...</a></li>
+            <li><a href="#<%= urlBase + lastPage %>" class="navigatable" data-page="<%= lastPage %>"><%= lastPage %></a></li>
+          <% } %>
+
+          <% if(currentPage !== lastPage){ %>
+            <li><a href="#<%= urlBase + next %>" class="navigatable" data-page="<%= next %>">&rsaquo;</a></li>
+            <li><a href="#<%= urlBase + lastPage %>" class="navigatable" data-page="<%= lastPage %>">&raquo;</a></li>
+          <% }else{ %>
+            <li class="disabled"><a href="#">&rsaquo;</a></li>
+            <li class="disabled"><a href="#">&raquo;</a></li>
+          <% } %>
+        </ul>
+      <% } %>
+    </script>
+
+    <script type="text/template" id="contact-form">
+      <form id='contact'>
+        <div class="control-group">
+          <label for="contact-firstName" class="control-label">First name:</label>
+          <input id="contact-firstName" name="firstName" type="text"/>
+        </div>
+        <div class="control-group">
+          <label for="contact-lastName" class="control-label">Last name:</label>
+          <input id="contact-lastName" name="lastName" type="text"/>
+        </div>
+        <div class="control-group">
+          <label for="contact-phoneNumber" class="control-label">Phone number:</label>
+          <input id="contact-phoneNumber" name="phoneNumber" type="text" value="<%- phoneNumber %>"/>
+        </div>
+        <button class="btn js-submit">Save</button>
+      </form>
+    </script>
+
+    <script type="text/template" id="provider-view">
+
+      <nav id="nav-provider" class="navbar navbar-custom" role="navigation">
+        <div class="container">
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                  <li class="hidden"><a href="#page-top"></a></li>
+                  <li><a class="page-scroll" href="#section1">About Dentist</a></li>
+                  <li><a class="page-scroll" href="#section2"></i> Service</a></li>
+                  <li><a class="page-scroll" href="#section3"><i class="fa fa-star"></i> Reputation</a></li
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                  <li><a href=""><i class="fa fa-user"></i> Account</a></li>
+                </ul>
+            </div>
+        </div>
+       <!-- /.container -->
+      </nav>
+
+      <section id="section1"><!--slider-->
+         <p>section1</p>
+             <section id="contact" class="container content-section text-center">
+          <div class="row">       
+          <div class="col-sm-12">                 
+          <h2 class="title text-center">Contact <strong>Us</strong></h2>        
+        </div>          
+      </div>
+      <div class="row">   
+          <div class="col-sm-8">
+            <div class="contact-form">
+              <h2 class="title text-center">Get In Touch</h2>
+              <div class="status alert alert-success" style="display: none"></div>
+              <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+                    </div>                        
+                    <div class="form-group col-md-12">
+                        <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+                    </div>
+                </form>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="contact-info">
+              <h2 class="title text-center">Contact Info</h2>
+              <address>
+                <p>Pawatify Inc.</p>
+              <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
+              <p>Newyork USA</p>
+              <p>Mobile: +2346 17 38 93</p>
+              <p>Fax: 1-714-252-0026</p>
+              <p>Email: info@Pawatify.com</p>
+              </address>
+              <div class="social-networks">
+                <h2 class="title text-center">Social Networking</h2>
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>          
+        </div> 
+    </section>
+      </section><!--/slider-->
+
+      <section id="section2" class="container content-section text-center">
+          <p>section2</p>
+              <section id="contact" class="container content-section text-center">
+          <div class="row">       
+          <div class="col-sm-12">                 
+          <h2 class="title text-center">Contact <strong>Us</strong></h2>        
+        </div>          
+      </div>
+      <div class="row">   
+          <div class="col-sm-8">
+            <div class="contact-form">
+              <h2 class="title text-center">Get In Touch</h2>
+              <div class="status alert alert-success" style="display: none"></div>
+              <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+                    </div>                        
+                    <div class="form-group col-md-12">
+                        <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+                    </div>
+                </form>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="contact-info">
+              <h2 class="title text-center">Contact Info</h2>
+              <address>
+                <p>Pawatify Inc.</p>
+              <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
+              <p>Newyork USA</p>
+              <p>Mobile: +2346 17 38 93</p>
+              <p>Fax: 1-714-252-0026</p>
+              <p>Email: info@Pawatify.com</p>
+              </address>
+              <div class="social-networks">
+                <h2 class="title text-center">Social Networking</h2>
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>          
+        </div> 
+    </section>
+      </section>
+
+      <section id="section3" class="container content-section text-center">
+          <p>section3</p>
+              <section id="contact" class="container content-section text-center">
+          <div class="row">       
+          <div class="col-sm-12">                 
+          <h2 class="title text-center">Contact <strong>Us</strong></h2>        
+        </div>          
+      </div>
+      <div class="row">   
+          <div class="col-sm-8">
+            <div class="contact-form">
+              <h2 class="title text-center">Get In Touch</h2>
+              <div class="status alert alert-success" style="display: none"></div>
+              <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                    <div class="form-group col-md-6">
+                        <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+                    </div>
+                    <div class="form-group col-md-12">
+                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+                    </div>                        
+                    <div class="form-group col-md-12">
+                        <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+                    </div>
+                </form>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="contact-info">
+              <h2 class="title text-center">Contact Info</h2>
+              <address>
+                <p>Pawatify Inc.</p>
+              <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
+              <p>Newyork USA</p>
+              <p>Mobile: +2346 17 38 93</p>
+              <p>Fax: 1-714-252-0026</p>
+              <p>Email: info@Pawatify.com</p>
+              </address>
+              <div class="social-networks">
+                <h2 class="title text-center">Social Networking</h2>
+              <ul>
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-youtube"></i></a>
+                </li>
+              </ul>
+              </div>
+            </div>
+          </div>          
+        </div> 
+    </section>
+      </section>
+
+    </script>
+
+    <script type="text/template" id="provider-view_backup">
+      <nav>
+        <ul class="pager">
+          <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
+          <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        </ul>
+      </nav>
+      <h1><%- firstName %> <%- lastName %></h1>
+      <p><strong>Phone number:</strong> <%- phoneNumber %></p>
+      <a href="#providers" class="btn btn-default"><i class="fa"></i>BACK to LIST</a>
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+      </ol>
+      <section id="services" class="container content-section">
+        <div class="bg">
+          <div class="col-sm-12">                 
+        <h2 class="title text-center">Our Service</h2>                                  
+        <div class="table-responsive cart_info">
+          <table class="table table-condensed">
+            <tbody>
+              <tr id='item'>
+                <td class="cart_description">
+                  <h4><a href="">General Dentistry</a></h4>
+                  <p>Checkup, X-rays & Consultation Cavities Fillings and Fillings Replacement Scaling, Cleaning & Polishing,Airflow
+                  </p>
+                </td>
+                <td class="cart_price">
+
+                </td>
+                <td class="cart_quantity">
+
+                </td>
+                <td class="cart_total pull-right">
+                  <h4><a href="">Cost</a></h4>
+                  <p class="cart_total_price">Free charge</p>
+                </td>
+              </tr>
+
+              <tr id='item'>
+                <td class="cart_description">
+                  <h4><a href="">Prosthetic Dentistry</a></h4>
+                  <p>Dental Crowns,Dental Bridges,Dentures,Dental Implants
+                  </p>
+                </td>
+                <td class="cart_price">
+
+                </td>
+                <td class="cart_quantity">
+
+                </td>
+                <td class="cart_total pull-right">
+                  <h4><a href="">Cost</a></h4>
+                  <p class="cart_total_price">Free charge</p>
+                </td>
+              </tr>
+
+              <tr id='item'>
+                <td class="cart_description">
+                  <h4><a href="">Orthodontic Dentistry</a></h4>
+                  <p>Clear & Metal Braces,Lingual Braces,Damon Braces,Invisalign,Removable Appliances
+                  </p>
+                </td>
+                <td class="cart_price">
+
+                </td>
+                <td class="cart_quantity">
+
+                </td>
+                <td class="cart_total pull-right">
+                  <h4><a href="">Cost</a></h4>
+                  <p class="cart_total_price">Free charge</p>
+                </td>
+              </tr>
+
+              <tr id='item'>
+                <td class="cart_description">
+                  <h4><a href="">Perlodontic Dentistry</a></h4>
+                  <p>CRoot Planning & Deep Cleaning,Gingivectomy,Gingival Graft,Crown-Lengthening Surgery
+                  </p>
+                </td>
+                <td class="cart_price">
+
+                </td>
+                <td class="cart_quantity">
+
+                </td>
+                <td class="cart_total pull-right">
+                  <h4><a href="">Cost</a></h4>
+                  <p class="cart_total_price">Free charge</p>
+                </td>
+              </tr>
+
+              <tr id='item'>
+                <td class="cart_description">
+                  <h4><a href="">Endodontic Dentistry</a></h4>
+                  <p>Endodontic Dentistry
+                  </p>
+                </td>
+                <td class="cart_price">
+
+                </td>
+                <td class="cart_quantity">
+
+                </td>
+                <td class="cart_total pull-right">
+                  <h4><a href="">Cost</a></h4>
+                  <p class="cart_total_price">Free charge</p>
+                </td>
+              </tr>
+
+              <tr id='item'>
+                <td class="cart_description">
+                  <h4><a href="">Oral Surgery</a></h4>
+                  <p>Tooth Extraction,Wisdom Tooth Extraction,Dental Implants,Bone Grafting,Orthognatic Surgery
+                  </p>
+                </td>
+                <td class="cart_price">
+
+                </td>
+                <td class="cart_quantity">
+
+                </td>
+                <td class="cart_total pull-right">
+                  <h4><a href="">Cost</a></h4>
+                  <p class="cart_total_price">Free charge</p>
+                </td>
+              </tr>
+
+          </tbody>
+        </table>
+        </div>
+      </div>  
+        </div> 
+    </section>
+    </script>
+
+    <script type="text/template" id="about-message"> 
+      <h1>About this application</h1>
+      <p>This application was designed to accompany you during your learning.</p> 
+      <p>Hopefully, it has served you well !</p>
+    </script>
+
+
+    <script type="text/template" id="login-template"> 
+
+      <form id="login-form" class="form-horizontal">
+        <div class="control-group">
+          <input type="hidden" name="msg" id="msg" placeholder="msg" class="form-control"/>
+        </div>
+        <div class="control-group">
+            <label for="email" class="control-label">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" autofocus="autofocus" class="form-control"/>
+        </div>
+        <div class="control-group">
+            <label for="password" class="control-label">Password</label>
+            <input type="password" name="password" id="password" placeholder="Password" class="form-control"/>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Remember me
+          </label>
+        </div>
+        <div class="control-group">
+            <button type="submit" class="btn js-submit btn-primary"><span class="ion-android-hand"></span>Login</button>
+            <a href="#" class="forget btn btn-link">Forgot your password?</a>
+            <a href="#" class="signup btn btn-link">SIGN UP</a>
+        </div>
+      </form>
+        <hr/>
+        <div class="control-group">
+          <p><a href="/auth/facebook" class="btn">Sign in with Facebook</a></p>
+          <p><a href="/auth/google" class="btn">Sign in with Google</a></p>
+        </div>
+    </script>
+
+    <script type="text/template" id="signup-template">
+    
+      <form id="signup-form" class="form-horizontal">
+
+        <div class="control-group">
+          <input type="hidden" name="msg" id="msg" placeholder="msg" autofocus="autofocus" class="form-control"/>
+        </div>
+        <div class="control-group">
+          <label for="email" class="control-label">Email</label>
+          <input type="email" name="email" id="email" placeholder="Email" autofocus="autofocus" class="form-control"/>
+        </div>
+
+        <div class="control-group">
+          <label for="password" class="control-label">Password</label>
+          <input type="password" name="password" id="password" placeholder="Password" class="form-control"/>
+        </div>
+
+        <div class="control-group">
+          <label for="confirmPassword" class="control-label">Confirm Password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" class="form-control"/>
+        </div>
+
+        <div class="control-group">
+            <button type="submit" class="btn js-submit btn-success"><span class="ion-person-add"></span>Signup</button>
+        </div>
+      </form>
+    </script>
+
+    <script type="text/template" id="forget-template">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form>
+          <div class="control-group">
+            <input type="hidden" name="msg" id="msg" placeholder="msg" autofocus="autofocus" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <p>Enter your email address below and we will send you password reset instructions.</p>
+            <label for="email" class="control-label">Email</label>
+            <input type="email" name="email" id="email" placeholder="Email" autofocus="autofocus" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary js-submit"><i class="fa fa-key"></i>Reset Password</button>
+          </div>
+        </form>
+      </div>
+    </script>
+
+    <script type="text/template" id="profile-template">
+      <% if(false){ %>
+        <p class="alert alert-info">This model has changed on the server, and has
+        been updated with the latest data from the server and your changes have
+        been reapplied.</p>
+      <% } %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4 col-md-4 user-details">
+            <div class="user-image">
+                <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
+            </div>
+            <div class="user-info-block">
+                <div class="user-heading">
+                    <h3>Karan Singh Sisodia</h3>
+                    <span class="help-block">Chandigarh, IN</span>
+                </div>
+                <ul class="navigation">
+                    <li class="active">
+                        <a data-toggle="tab" href="#information">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#settings">
+                            <span class="glyphicon glyphicon-cog"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#email">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </a>
+                    </li>
+                    <li>
+                        <a data-toggle="tab" href="#events">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="user-body">
+                    <div class="tab-content">
+                        <div id="information" class="tab-pane active">
+                            <h4>Account Information</h4>
+                        </div>
+                        <div id="settings" class="tab-pane">
+                            <h4>Settings</h4>
+                        </div>
+                        <div id="email" class="tab-pane">
+                            <h4>Send Message</h4>
+                        </div>
+                        <div id="events" class="tab-pane">
+                            <h4>Events</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+</div>
+
+      <form>
+
+        <div class="control-group">
+          <label for="contact-firstName" class="control-label">email:</label>
+          <input id="contact-firstName" name="email" type="text" value="<%- email %>"/>
+        </div>
+        <button class="btn js-submit">Save</button>
+      </form>
+    </script>
+
+    <script type="text/template" id="reset-template">
+      <div class="col-sm-8 col-sm-offset-2">
+        <form method="POST">
+          <legend>Reset Password</legend>
+          <input type="hidden" name="_csrf"/>
+          <div class="form-group">
+            <label for="password">New Password</label>
+            <input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <label for="confirm">Confirm Password</label>
+            <input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control"/>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-reset"><i class="fa fa-keyboard-o"></i>Change Password</button>
+          </div>
+        </form>
+      </div>
+    </script>
+    <script type="text/template" id="logout-template">
+      <form class="form-horizontal">
+         <p>Are you sure to exist</p>
+         <div class="control-group">
+            <input type="hidden" name="msg" id="msg" placeholder="msg" autofocus="autofocus" class="form-control"/>
+         </div>
+         <div class="control-group">
+            <button type="submit" class="btn js-submit btn-primary logout">Yes</button>
+            <button type="submit" class="btn js-submit btn-primary off">No</button>
+         </div>
+     </form>
+    </script>
+
+    <!-- Service provider -->
+    <script type="text/template" id="contact-list">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </script>
+
+    <script type="text/template" id="contact-list-none">
+      <td colspan="3">No contacts to display.</td>
+    </script>
+
+    <script type="text/template" id="contact-list-item">
+      <td><%- firstName %></td>
+      <td><%- lastName %></td>
+      <td>
+        <a href="#contacts/<%- id %>" class="btn btn-small js-show">
+          <i class="icon-eye-open"></i>
+          Show
+        </a>
+        <a href="#contacts/<%- id %>/edit" class="btn btn-small js-edit">
+          <i class="icon-pencil"></i>
+          Edit
+        </a>
+        <button class="btn btn-small js-delete">
+          <i class="icon-remove"></i>
+          Delete
+        </button>
+      </td>
+    </script>
+
+    <script type="text/template" id="contact-list-layout">
+      <div id="panel-region"></div>
+      <div id="contacts-region"></div>
+    </script>
+
+    <script type="text/template" id="contact-list-panel">
+      <button class="btn btn-primary js-new">New Service</button>
+      <form id="filter-form" class="form-search form-inline pull-right">
+        <div class="input-append">
+          <input type="text" class="span2 search-query js-filter-criterion">
+          <button type="submit" class="btn">Filter contacts</button>
+        </div>
+      </form>
+    </script>
+
+    <script type="text/template" id="UploadItem">
+        <td> 
+            <p class="name"><%= filename %></p>
+            <strong class="text-danger"></strong>
+        </td>
+        <td>
+            <p class="size"><%= filesize %></p>
+            <div class="progress progress-striped active hide" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div>
+            </div>
+        </td>
+        <td>
+            <button class="btn btn-primary start upload-img">
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Start</span>
+            </button>
+            <button class="btn btn-primary cancel cancel-img">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Cancel</span>
+            </button>
+        </td>
+    </script>
+
+    <script type="text/template" id="service-form">
+
+      <!--upload picture-->
+      <div class="container">
+        <div class='row'>
+          <input id='fileInput' type='file' name='fileInput'>
+        </div>
+        <table role="presentation" class="table table-striped">
+          <tbody class="files"></tbody>
+        </table>
+      </div>
+
+      <form class="col-sm-8">
+        <div class="control-group">
+          <input type="hidden" name="msg" id="msg" placeholder="msg" autofocus="autofocus" class="form-control"/>
+        </div>
+        <div class="control-group"> 
+          <label for="email" class="control-label">Email</label>
+          <input type="firstName" name="firstName" id="firstName" placeholder="Firstname" autofocus="autofocus" class="form-control"/>
+        </div>
+
+        <div class="control-group">
+          <label for="lastName" class="control-label">Lastname</label>
+          <input type="lastName" name="lastName" id="lastName" placeholder="Lastname" class="form-control"/>
+        </div>
+
+        <div class="control-group">
+          <label for="address1" class="control-label">Address1</label>
+          <input type="address1" name="address1" id="address1" placeholder="Address1" class="form-control"/>
+        </div>
+
+        <div class="control-group">
+          <label for="address2" class="control-label">Address2</label>
+          <input type="address2" name="address2" id="address2" placeholder="Address2" class="form-control"/>
+        </div>
+
+        <div class="control-group">
+          <label for="phoneNumber" class="control-label">Phone number:</label>
+          <input id="phoneNumber" name="phoneNumber" type="text" value="<%- phoneNumber %>"/>
+        </div>
+        <div class="control-group">
+          <label for="location" class="control-label">services location:</label>
+          <select class="location">
+                <option >Bangkok</option>
+                <option >Pueket</option>
+                <option >Chiang mai</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="specialist" class="control-label">Specialist services:</label>
+          <select class="specialist">
+                <option >General</option>
+                <option >Implantologists</option>
+                <option >Prosthodontists</option>
+                <option >Operative and Cosmetic Dentists</option>
+                <option >Orthodontists & Invisalign Specialist</option>
+                <option >Periodontists</option>
+                <option >Surgeon</option>
+          </select>
+        </div>
+        <div class="control-group">
+          <label for="procedures" class="control-label">Procedures:</label>
+          <select class='procedures' multiple="multiple">
+                <option >Tooth bonding / White fillings</option>
+                <option >Root canal treatment </option>
+                <option >Mozzarella</option>
+                <option >Onions</option>
+                <option >Pepperoni</option>
+
+          </select>
+        </div>
+        <div class="control-group">
+            <button type="submit" class="btn js-submit btn-success"><span class="ion-person-add"></span>Signup</button>
+        </div>
+      </form>
+    </script>
+
+    <script src="./assets/js/vendor/jquery.js"></script>
+    <script src="./assets/js/vendor/jquery-ui.min.js"></script> 
+    <script src="./assets/js/vendor/json2.js"></script>
+    <script src="./assets/js/vendor/bootstrap.min.js"></script>
+    <script src="./assets/js/vendor/underscore.js"></script>
+    <script src="./assets/js/vendor/backbone.js"></script>
+    
+    <!-- new addition -->
+    <script src="./assets/js/vendor/backbone.paginator.js"></script>
+    <script src="./assets/js/vendor/backbone-validation.js"></script>
+    <script src="./assets/js/vendor/backbone.picky.js"></script>
+    <script src="./assets/js/vendor/backbone.syphon.js"></script>
+    <script src="./assets/js/vendor/backbone.localstorage.js"></script>
+    <script src="./assets/js/vendor/backbone.marionette.js"></script>
+    <script src="./assets/js/vendor/spin.js"></script>
+    <script src="./assets/js/vendor/spin.jquery.js"></script>
+    <script src="./assets/js/vendor/jquery.multiselect.min.js"></script>
+
+    <script src="./assets/js/apps/config/regions/dialog.js"></script>
+
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/apps/config/storage/localstorage.js"></script>
+    <script src="./assets/js/entities/account.js"></script>
+    <script src="./assets/js/entities/common.js"></script>
+    <script src="./assets/js/entities/header.js"></script>
+    <script src="./assets/js/entities/provider.js"></script>
+    <script src="./assets/js/entities/search.js"></script>
+    <script src="./assets/js/common/views.js"></script>
+
+    <script src="./assets/js/apps/account/common/views.js"></script>
+
+    <script src="./assets/js/apps/search/providers_app.js"></script>
+    <script src="./assets/js/apps/search/list/list_view.js"></script>
+    <script src="./assets/js/apps/search/list/list_controller.js"></script>
+    <script src="./assets/js/apps/search/show/show_view.js"></script>
+    <script src="./assets/js/apps/search/show/show_controller.js"></script>
+
+    <script src="./assets/js/apps/about/about_app.js"></script>
+    <script src="./assets/js/apps/about/show/show_view.js"></script> 
+    <script src="./assets/js/apps/about/show/show_controller.js"></script>
+
+    <script src="./assets/js/apps/account/account_app.js"></script>
+    <script src="./assets/js/apps/account/show/show_views.js"></script> 
+    <script src="./assets/js/apps/account/show/show_controller.js"></script>
+
+    <script src="./assets/js/apps/services/contacts_app.js"></script>
+    <script src="./assets/js/apps/services/common/views.js"></script>
+    <script src="./assets/js/apps/services/list/list_view.js"></script>
+    <script src="./assets/js/apps/services/list/list_controller.js"></script>
+    <script src="./assets/js/apps/services/show/show_view.js"></script>
+    <script src="./assets/js/apps/services/show/show_controller.js"></script>
+    <script src="./assets/js/apps/services/edit/edit_view.js"></script>
+    <script src="./assets/js/apps/services/edit/edit_controller.js"></script>
+    <script src="./assets/js/apps/services/new/new_view.js"></script>
+
+    <script src="./assets/js/apps/header/header_app.js"></script>
+    <script src="./assets/js/apps/header/list/list_view.js"></script> 
+    <script src="./assets/js/apps/header/list/list_controller.js"></script>
+
+
+
+    <script type="text/javascript">
+
+      ContactManager.start();
+    </script>
+  </body>
+</html>
