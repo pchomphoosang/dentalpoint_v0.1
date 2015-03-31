@@ -1,43 +1,38 @@
-ContactManager.module("AboutApp", function(AboutApp, ContactManager, Backbone, Marionette, $, _){
+ContactManager.module("MainApp", function(MainApp, ContactManager, Backbone, Marionette, $, _){
 
-  AboutApp.startWithParent = false;
+  MainApp.startWithParent = false;
 
-  AboutApp.onStart = function(){
-  	console.log("starting About app");
+  MainApp.onStart = function(){
+  	console.log("starting Main app");
   };
 
-  AboutApp.onStop = function(){
- 	console.log("stopping About app");
+  MainApp.onStop = function(){
+ 	console.log("stopping Main app");
   };
 
 });
 
-ContactManager.module("Routers.AboutApp", function(AboutAppRouter, ContactManager, Backbone, Marionette, $, _){
-	AboutAppRouter.Router = Marionette.AppRouter.extend({
+ContactManager.module("Routers.MainApp", function(MainAppRouter, ContactManager, Backbone, Marionette, $, _){
+	MainAppRouter.Router = Marionette.AppRouter.extend({
 	    appRoutes: {
-	      "about" : "showAbout"
+	      "main" : "showMain"
 	    }
 	});
 
 	var API={
-		showAbout: function(){
-		    var  auth = ContactManager.HeaderApp.List.session.get('authenticated');
-			if (auth !== null) {
-		  	  ContactManager.startSubApp("AboutApp");
-		  	  ContactManager.AboutApp.Show.Controller.showAbout();
-			}else {
-			   ContactManager.trigger("account:login");
-			}
+		showMain: function(){
+		  	  ContactManager.startSubApp("MainApp");
+		  	  ContactManager.MainApp.Show.Controller.showAbout();
 	    }
 	};	
 
-	this.listenTo(ContactManager, "about:show", function(){
-		ContactManager.navigate("about");
-		API.showAbout();
+	this.listenTo(ContactManager, "main:show", function(){
+		ContactManager.navigate("main");
+		API.showMain();
 	});
 
 	ContactManager.addInitializer(function(){ 
-		new AboutAppRouter.Router({
+		new MainAppRouter.Router({
 			controller: API
 		});
 	});

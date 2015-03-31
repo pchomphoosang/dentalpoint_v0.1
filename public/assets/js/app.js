@@ -41,8 +41,7 @@ ContactManager.on("start", function(){
     Backbone.history.start();
 
     if(this.getCurrentRoute() === ""){
-      //ContactManager.trigger("contacts:list");
-      //ContactManager.trigger("account:sessionlogin");
+      ContactManager.trigger("main:show");
     }
   }
 });

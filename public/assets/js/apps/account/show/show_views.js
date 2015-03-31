@@ -31,7 +31,8 @@ ContactManager.module("AccountApp.Show", function(Show, ContactManager, Backbone
   });
 
   Show.Profile= Marionette.ItemView.extend({
-    template: "#profile-template"
+    template: "#profile-template",
+    className:"container"
   }); 
 
   Show.Reset = Marionette.ItemView.extend({

@@ -1,4 +1,4 @@
-ContactManager.module("AboutApp.Show", function(Show, ContactManager, Backbone, Marionette, $, _){
+ContactManager.module("MainApp.Show", function(Show, ContactManager, Backbone, Marionette, $, _){
 
 	var Controller = Marionette.Controller.extend({
 		showAbout: function(){
@@ -9,7 +9,7 @@ ContactManager.module("AboutApp.Show", function(Show, ContactManager, Backbone, 
 
 	Show.Controller = new Controller();
 
-	ContactManager.AboutApp.on("stop", function(){
+	ContactManager.MainApp.on("stop", function(){
 		Show.Controller.destroy();
 	});
 });

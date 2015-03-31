@@ -14,99 +14,20 @@
   </head>
   </body>
       <div id="header-region"></div>
-      <div id="main-region" class="container">
-
-            <div class="container-full">
-
-                  <div class="row">
-                   
-                    <div class="col-lg-12 text-center v-center">
-                      
-                      <h1>Find your Dentist</h1>
-                      <p class="lead">comming soon</p>
-                      
-                      <br><br><br>
-                      
-                      <form class="form-inline">
-                        <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
-                            <input class="form-control input-lg" placeholder="Enter your email address" type="text">
-                            <span class="input-group-btn">
-                              <button class="btn btn-lg btn-primary" type="button">OK</button>
-                            </span>
-                        </div>
-                      </form>
-                    </div>
-                    
-                  </div> <!-- /row -->
-              
-                  <div class="row">
-                   
-                    <div class="col-lg-12 text-center v-center" style="font-size:39pt;">
-                      <a href="#"><i class="icon-google-plus"></i></a> <a href="#"><i class="icon-facebook"></i></a>  <a href="#"><i class="icon-twitter"></i></a> <a href="#"><i class="icon-github"></i></a> <a href="#"><i class="icon-pinterest"></i></a>
-                    </div>
-                  
-                  </div>
-              
-                <br><br><br><br><br>
-
-            </div> <!-- /container full -->
-            <div class="container">
-              
-                <hr>             
-                <div class="row">
-                    <div class="col-md-4">
-                      <div class="panel panel-default">
-                        <div class="panel-heading"><h3>Hello.</h3></div>
-                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                        Aliquam in felis sit amet augue.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="panel panel-default">
-                        <div class="panel-heading"><h3>Hello.</h3></div>
-                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                        Aliquam in felis sit amet augue.
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="panel panel-default">
-                        <div class="panel-heading"><h3>Hello.</h3></div>
-                        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
-                        Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
-                        dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
-                        Aliquam in felis sit amet augue.
-                        </div>
-                      </div>
-                    </div>
-                </div>
-              
-              <div class="row">
-                    <div class="col-lg-12">
-                    <br><br>
-                      <p class="pull-right"><a href="http://www.bootply.com">Template from Bootply</a> &nbsp; ©Copyright 2013 ACME<sup>TM</sup> Brand.</p>
-                    <br><br>
-                    </div>
-                </div>
-            </div>
-
-      </div>  <!--end of main-->
-
+      <div id="main-region"></div> 
       <div id="dialog-region"></div>
 
     <script type="text/template" id="header-template"> 
 
           <div class="container">
             <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><span class="ion-cube"></span> DENTAL Point</a> 
+            <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><span class="ion-cube"></span> DENTAL STH</a> 
             </div>
 
             <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav navbar-left">
+                <p><a href="#search" class="btn btn-primary">Search</a></p>
+              </ul>
               <ul class="nav navbar-nav navbar-right">
                 <% if ( !login_status ) { %>
                     <li><button type="button" id="loginlink" class="btn btn-default navbar-btn">Login / Create Account</button></li>
@@ -289,370 +210,208 @@
     </script>
 
     <script type="text/template" id="provider-view">
+      <div class="row">
+        <!--left-->
+        <div class="col-md-3" id="leftCol">
+          <ul class="nav nav-stacked" id="sidebar">
+            <li><a href="#sec-about">About Dentist</a></li>
+            <li><a href="#sec-service">Service</a></li>
+            <li><a href="#sec-reviews">Reviews</a></li>
+            <li><a href="#sec-contract">Contract & Appointment</a></li>
+            <li><a href="#sec-map">Map</a></li>
+          </ul>
+        </div><!--/left-->
 
-      <nav id="nav-provider" class="navbar navbar-custom" role="navigation">
-        <div class="container">
+        <!--right-->
+        <div class="col-md-9">
+          <h2 id="sec-about">About Me</h2>
+            <section class="container content-section text-center">
+              <div class="row">
+                  <div class="col-xs-12 col-sm-6 col-md-6">
+                      <div class="well well-sm">
+                          <div class="row">
+                              <div class="col-sm-5 col-md-4">
+                                  <img src="" alt="" class="img-rounded img-responsive" />
+                              </div>
+                              <div class="col-sm-5 col-md-8">
+                                  <h4>Dr. SuThee Bangkok</h4>
+                                  <small><cite title="San Francisco, USA"><i class="glyphicon glyphicon-map-marker">
+                                  </i>Bangkok,Thailand</cite></small>
+                                  <p>
+                                      <i class="glyphicon glyphicon-education"></i>General
+                                      <br />
+                                      <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                                      <br />
+                                      <i class="glyphicon glyphicon-earphone"></i>0976241010</p>
+                              </div>
+                              <div class="col-sm-5 col-md-2">
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </section>
+          <hr>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-left navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                  <li class="hidden"><a href="#page-top"></a></li>
-                  <li><a class="page-scroll" href="#section1">About Dentist</a></li>
-                  <li><a class="page-scroll" href="#section2"></i> Service</a></li>
-                  <li><a class="page-scroll" href="#section3"><i class="fa fa-star"></i> Reputation</a></li
-                </ul>
-            </div>
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                  <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                </ul>
-            </div>
-        </div>
-       <!-- /.container -->
-      </nav>
-
-      <section id="section1"><!--slider-->
-         <p>section1</p>
-             <section id="contact" class="container content-section text-center">
-          <div class="row">       
-          <div class="col-sm-12">                 
-          <h2 class="title text-center">Contact <strong>Us</strong></h2>        
-        </div>          
-      </div>
-      <div class="row">   
-          <div class="col-sm-8">
-            <div class="contact-form">
-              <h2 class="title text-center">Get In Touch</h2>
-              <div class="status alert alert-success" style="display: none"></div>
-              <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-                    <div class="form-group col-md-6">
-                        <input type="text" name="name" class="form-control" required="required" placeholder="Name">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="email" name="email" class="form-control" required="required" placeholder="Email">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
-                    </div>                        
-                    <div class="form-group col-md-12">
-                        <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
-                    </div>
-                </form>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="contact-info">
-              <h2 class="title text-center">Contact Info</h2>
-              <address>
-                <p>Pawatify Inc.</p>
-              <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-              <p>Newyork USA</p>
-              <p>Mobile: +2346 17 38 93</p>
-              <p>Fax: 1-714-252-0026</p>
-              <p>Email: info@Pawatify.com</p>
-              </address>
-              <div class="social-networks">
-                <h2 class="title text-center">Social Networking</h2>
-              <ul>
-                <li>
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-google-plus"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-youtube"></i></a>
-                </li>
-              </ul>
+          <h2 id="sec-service">Services</h2>
+            <div class="panel panel-default">
+              <div class="panel-heading">General Dentistry</div>
+              <div class="panel-body">
+                Checkup, X-rays & Consultation Cavities Fillings and Fillings Replacement Scaling, Cleaning & Polishing,Airflow
               </div>
             </div>
-          </div>          
-        </div> 
-    </section>
-      </section><!--/slider-->
-
-      <section id="section2" class="container content-section text-center">
-          <p>section2</p>
-              <section id="contact" class="container content-section text-center">
-          <div class="row">       
-          <div class="col-sm-12">                 
-          <h2 class="title text-center">Contact <strong>Us</strong></h2>        
-        </div>          
-      </div>
-      <div class="row">   
-          <div class="col-sm-8">
-            <div class="contact-form">
-              <h2 class="title text-center">Get In Touch</h2>
-              <div class="status alert alert-success" style="display: none"></div>
-              <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-                    <div class="form-group col-md-6">
-                        <input type="text" name="name" class="form-control" required="required" placeholder="Name">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="email" name="email" class="form-control" required="required" placeholder="Email">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
-                    </div>                        
-                    <div class="form-group col-md-12">
-                        <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
-                    </div>
-                </form>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="contact-info">
-              <h2 class="title text-center">Contact Info</h2>
-              <address>
-                <p>Pawatify Inc.</p>
-              <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-              <p>Newyork USA</p>
-              <p>Mobile: +2346 17 38 93</p>
-              <p>Fax: 1-714-252-0026</p>
-              <p>Email: info@Pawatify.com</p>
-              </address>
-              <div class="social-networks">
-                <h2 class="title text-center">Social Networking</h2>
-              <ul>
-                <li>
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-google-plus"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-youtube"></i></a>
-                </li>
-              </ul>
+            <div class="panel panel-default">
+              <div class="panel-heading">Prosthetic Dentistry</div>
+              <div class="panel-body">
+                Dental Crowns,Dental Bridges,Dentures,Dental Implants
               </div>
             </div>
-          </div>          
-        </div> 
-    </section>
-      </section>
-
-      <section id="section3" class="container content-section text-center">
-          <p>section3</p>
-              <section id="contact" class="container content-section text-center">
-          <div class="row">       
-          <div class="col-sm-12">                 
-          <h2 class="title text-center">Contact <strong>Us</strong></h2>        
-        </div>          
-      </div>
-      <div class="row">   
-          <div class="col-sm-8">
-            <div class="contact-form">
-              <h2 class="title text-center">Get In Touch</h2>
-              <div class="status alert alert-success" style="display: none"></div>
-              <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
-                    <div class="form-group col-md-6">
-                        <input type="text" name="name" class="form-control" required="required" placeholder="Name">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <input type="email" name="email" class="form-control" required="required" placeholder="Email">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
-                    </div>
-                    <div class="form-group col-md-12">
-                        <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
-                    </div>                        
-                    <div class="form-group col-md-12">
-                        <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
-                    </div>
-                </form>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="contact-info">
-              <h2 class="title text-center">Contact Info</h2>
-              <address>
-                <p>Pawatify Inc.</p>
-              <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
-              <p>Newyork USA</p>
-              <p>Mobile: +2346 17 38 93</p>
-              <p>Fax: 1-714-252-0026</p>
-              <p>Email: info@Pawatify.com</p>
-              </address>
-              <div class="social-networks">
-                <h2 class="title text-center">Social Networking</h2>
-              <ul>
-                <li>
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-google-plus"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-youtube"></i></a>
-                </li>
-              </ul>
+            <div class="panel panel-default">
+              <div class="panel-heading">Orthodontic Dentistry</div>
+              <div class="panel-body">
+                Clear & Metal Braces,Lingual Braces,Damon Braces,Invisalign,Removable Appliances
               </div>
             </div>
-          </div>          
-        </div> 
-    </section>
-      </section>
+            <div class="panel panel-default">
+              <div class="panel-heading">Perlodontic Dentistry</div>
+              <div class="panel-body">
+                CRoot Planning & Deep Cleaning,Gingivectomy,Gingival Graft,Crown-Lengthening Surgery
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Endodontic Dentistry</div>
+              <div class="panel-body">
+                Endodontic Dentistry
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">Oral Surgery</div>
+              <div class="panel-body">
+                Tooth Extraction,Wisdom Tooth Extraction,Dental Implants,Bone Grafting,Orthognatic Surgery
+              </div>
+            </div>
+          <hr>
 
+          <h2 id="sec-reviews">Reviews</h2>
+           <section class="container content-section text-center">
+              <div class="row"> 
+                <div class="col-md-3">
+                    <div class="list-group">
+                        <a href="http://www.jquery2dotnet.com" class="list-group-item visitor">
+                            <h3 class="pull-right">
+                                <i class="fa fa-eye"></i>
+                            </h3>
+                            <h4 class="list-group-item-heading count">
+                                1000</h4>
+                            <p class="list-group-item-text">
+                                Profile Views</p>
+                        </a><a href="http://www.jquery2dotnet.com" class="list-group-item facebook-like">
+                            <h3 class="pull-right">
+                                <i class="fa fa-facebook-square"></i>
+                            </h3>
+                            <h4 class="list-group-item-heading count">
+                                1000</h4>
+                            <p class="list-group-item-text">
+                                Facebook Likes</p>
+                        </a><a href="http://www.jquery2dotnet.com" class="list-group-item google-plus">
+                            <h3 class="pull-right">
+                                <i class="fa fa-google-plus-square"></i>
+                            </h3>
+                            <h4 class="list-group-item-heading count">
+                                1000</h4>
+                            <p class="list-group-item-text">
+                                Google+</p>
+                        </a><a href="http://www.jquery2dotnet.com" class="list-group-item twitter">
+                            <h3 class="pull-right">
+                                <i class="fa fa-twitter-square"></i>
+                            </h3>
+                            <h4 class="list-group-item-heading count">
+                                1000</h4>
+                            <p class="list-group-item-text">
+                                Twitter Followers</p>
+                        </a>
+                    </div>
+                </div>
+              </div> <!--end row-->
+            </section>
+          <hr>
+
+          <h2 class="title text-center" id="sec-contract">Contact <strong>Us</strong></h2>    
+            <section class="container content-section text-center">
+                  <div class="row">   
+                      <div class="col-sm-8">
+                        <div class="contact-form">
+                          <div class="status alert alert-success" style="display: none"></div>
+                          <form id="main-contact-form" class="contact-form row" name="contact-form" method="post">
+                                <div class="form-group col-md-6">
+                                    <input type="text" name="name" class="form-control" required="required" placeholder="Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" name="email" class="form-control" required="required" placeholder="Email">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <input type="text" name="subject" class="form-control" required="required" placeholder="Subject">
+                                </div>
+                                <div class="form-group col-md-12">
+                                    <textarea name="message" id="message" required="required" class="form-control" rows="8" placeholder="Your Message Here"></textarea>
+                                </div>                        
+                                <div class="form-group col-md-12">
+                                    <input type="submit" name="submit" class="btn btn-primary pull-right" value="Submit">
+                                </div>
+                            </form>
+                        </div>
+                      </div>                      
+                  </div> <!--end row-->
+            </section>
+
+            <hr>
+
+            <h2 id="sec-map">Map</h2>
+         </div><!--/right-->
+      </div>
     </script>
 
-    <script type="text/template" id="provider-view_backup">
-      <nav>
-        <ul class="pager">
-          <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
-          <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
-        </ul>
-      </nav>
-      <h1><%- firstName %> <%- lastName %></h1>
-      <p><strong>Phone number:</strong> <%- phoneNumber %></p>
-      <a href="#providers" class="btn btn-default"><i class="fa"></i>BACK to LIST</a>
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Library</a></li>
-        <li class="active">Data</li>
-      </ol>
-      <section id="services" class="container content-section">
-        <div class="bg">
-          <div class="col-sm-12">                 
-        <h2 class="title text-center">Our Service</h2>                                  
-        <div class="table-responsive cart_info">
-          <table class="table table-condensed">
-            <tbody>
-              <tr id='item'>
-                <td class="cart_description">
-                  <h4><a href="">General Dentistry</a></h4>
-                  <p>Checkup, X-rays & Consultation Cavities Fillings and Fillings Replacement Scaling, Cleaning & Polishing,Airflow
-                  </p>
-                </td>
-                <td class="cart_price">
-
-                </td>
-                <td class="cart_quantity">
-
-                </td>
-                <td class="cart_total pull-right">
-                  <h4><a href="">Cost</a></h4>
-                  <p class="cart_total_price">Free charge</p>
-                </td>
-              </tr>
-
-              <tr id='item'>
-                <td class="cart_description">
-                  <h4><a href="">Prosthetic Dentistry</a></h4>
-                  <p>Dental Crowns,Dental Bridges,Dentures,Dental Implants
-                  </p>
-                </td>
-                <td class="cart_price">
-
-                </td>
-                <td class="cart_quantity">
-
-                </td>
-                <td class="cart_total pull-right">
-                  <h4><a href="">Cost</a></h4>
-                  <p class="cart_total_price">Free charge</p>
-                </td>
-              </tr>
-
-              <tr id='item'>
-                <td class="cart_description">
-                  <h4><a href="">Orthodontic Dentistry</a></h4>
-                  <p>Clear & Metal Braces,Lingual Braces,Damon Braces,Invisalign,Removable Appliances
-                  </p>
-                </td>
-                <td class="cart_price">
-
-                </td>
-                <td class="cart_quantity">
-
-                </td>
-                <td class="cart_total pull-right">
-                  <h4><a href="">Cost</a></h4>
-                  <p class="cart_total_price">Free charge</p>
-                </td>
-              </tr>
-
-              <tr id='item'>
-                <td class="cart_description">
-                  <h4><a href="">Perlodontic Dentistry</a></h4>
-                  <p>CRoot Planning & Deep Cleaning,Gingivectomy,Gingival Graft,Crown-Lengthening Surgery
-                  </p>
-                </td>
-                <td class="cart_price">
-
-                </td>
-                <td class="cart_quantity">
-
-                </td>
-                <td class="cart_total pull-right">
-                  <h4><a href="">Cost</a></h4>
-                  <p class="cart_total_price">Free charge</p>
-                </td>
-              </tr>
-
-              <tr id='item'>
-                <td class="cart_description">
-                  <h4><a href="">Endodontic Dentistry</a></h4>
-                  <p>Endodontic Dentistry
-                  </p>
-                </td>
-                <td class="cart_price">
-
-                </td>
-                <td class="cart_quantity">
-
-                </td>
-                <td class="cart_total pull-right">
-                  <h4><a href="">Cost</a></h4>
-                  <p class="cart_total_price">Free charge</p>
-                </td>
-              </tr>
-
-              <tr id='item'>
-                <td class="cart_description">
-                  <h4><a href="">Oral Surgery</a></h4>
-                  <p>Tooth Extraction,Wisdom Tooth Extraction,Dental Implants,Bone Grafting,Orthognatic Surgery
-                  </p>
-                </td>
-                <td class="cart_price">
-
-                </td>
-                <td class="cart_quantity">
-
-                </td>
-                <td class="cart_total pull-right">
-                  <h4><a href="">Cost</a></h4>
-                  <p class="cart_total_price">Free charge</p>
-                </td>
-              </tr>
-
-          </tbody>
-        </table>
+    <script type="text/template" id="main-view"> 
+        <div class="row">
+          <div class="well search-main text-center">
+              <h2 id="search-txt">Search Dentists</h2>
+              <p><a href="#search" class="btn btn-primary"> Start Searching..</a></p>
+          </div>        
         </div>
-      </div>  
-        </div> 
-    </section>
-    </script>
+        <br><br><br><br><br>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h3>Hello.</h3></div>
+              <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+              Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+              dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+              Aliquam in felis sit amet augue.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h3>Hello.</h3></div>
+              <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+              Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+              dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+              Aliquam in felis sit amet augue.
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h3>Hello.</h3></div>
+              <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate. 
+              Quisque mauris augue, molestie tincidunt condimentum vitae, gravida a libero. Aenean sit amet felis 
+              dolor, in sagittis nisi. Sed ac orci quis tortor imperdiet venenatis. Duis elementum auctor accumsan. 
+              Aliquam in felis sit amet augue.
+              </div>
+            </div>
+          </div>
 
-    <script type="text/template" id="about-message"> 
-      <h1>About this application</h1>
-      <p>This application was designed to accompany you during your learning.</p> 
-      <p>Hopefully, it has served you well !</p>
+        </div>
     </script>
 
 
@@ -740,59 +499,7 @@
         been updated with the latest data from the server and your changes have
         been reapplied.</p>
       <% } %>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 col-md-4 user-details">
-            <div class="user-image">
-                <img src="http://www.gravatar.com/avatar/2ab7b2009d27ec37bffee791819a090c?s=100&d=mm&r=g" alt="Karan Singh Sisodia" title="Karan Singh Sisodia" class="img-circle">
-            </div>
-            <div class="user-info-block">
-                <div class="user-heading">
-                    <h3>Karan Singh Sisodia</h3>
-                    <span class="help-block">Chandigarh, IN</span>
-                </div>
-                <ul class="navigation">
-                    <li class="active">
-                        <a data-toggle="tab" href="#information">
-                            <span class="glyphicon glyphicon-user"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#settings">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#email">
-                            <span class="glyphicon glyphicon-envelope"></span>
-                        </a>
-                    </li>
-                    <li>
-                        <a data-toggle="tab" href="#events">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="user-body">
-                    <div class="tab-content">
-                        <div id="information" class="tab-pane active">
-                            <h4>Account Information</h4>
-                        </div>
-                        <div id="settings" class="tab-pane">
-                            <h4>Settings</h4>
-                        </div>
-                        <div id="email" class="tab-pane">
-                            <h4>Send Message</h4>
-                        </div>
-                        <div id="events" class="tab-pane">
-                            <h4>Events</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-  </div>
-</div>
+      <h1>Edit Profile</h1>
 
       <form>
 
