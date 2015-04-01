@@ -3,10 +3,7 @@ ContactManager.module("SearchApp.Show", function(Show, ContactManager, Backbone,
   var Controller = Marionette.Controller.extend({
     showProvider: function(id){
       
-      var loadingView = new ContactManager.Common.Views.Loading({
-          title: "Loading View Detail",
-          message: "Loading........ View Detail"
-      });
+      var loadingView = new ContactManager.Common.Views.Loading({});
 
       ContactManager.mainRegion.show(loadingView);
 

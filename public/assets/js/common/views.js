@@ -98,6 +98,9 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
         collection: this.collection
       });
 
+      // todo //
+      var mapView = new Views.Map();
+
       var self = this;
       this.listenTo(controls, "page:change", function(page){
         self.trigger("page:change", page);
@@ -115,6 +118,43 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
       });
     }
 
+  });
+
+
+  Views.Map = Marionette.ItemView.extend({
+    template: "#map-view",
+    className: "col-xs-12 col-sm-12 col-md-6 col-lg-6",
+
+    init_map: function(index){
+        var latitudes = [13.688031, 38.898537, 38.8507126, 38.84753];
+        var longitudes = [100.647662, -77.13208299999997, -77.09903600000001, -77.06577290000001];
+        var myLocation = new google.maps.LatLng(latitudes[index], longitudes[index]);
+        var mapOptions = {
+            center: myLocation,
+            zoom: 16
+        };
+        var marker = new google.maps.Marker({
+            position: myLocation,
+            title: "Property Location"
+        });
+        var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+        marker.setMap(map);
+    },
+
+    onShow: function(){
+        this.init_map(0);
+
+        this.$el.affix({
+          offset: {
+            top: 30
+          }
+        });
+      
+    },
+
+    searchClicked: function(e){
+
+    }
   });
 
 });

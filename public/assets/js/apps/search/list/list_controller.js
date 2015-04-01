@@ -7,7 +7,10 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
 
       var layoutView = new List.Layout();
       var searchPanel= new List.Search();
+
+
       layoutView.on("show", function(){
+
           layoutView.panelRegion.show(searchPanel);
            searchPanel.on('submit:search',function(data){
                  List.Controller.FetchProvider( data, layoutView,options);             
@@ -31,6 +34,10 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
 
       var loadingView = new ContactManager.Common.Views.Loading();
       layoutView.contactsRegion.show(loadingView);
+
+      //--todo Map --//
+      var mapPanel   = new ContactManager.Common.Views.Map();
+      layoutView.mapRegion.show(mapPanel);
 
       console.log("keyword :"+JSON.stringify( options));
       var fetchingproviders = ContactManager.request("search:entities",{ parameters: options, keys: keysearch});
@@ -58,7 +65,8 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
              });
 
              providersListView.on("childview:search:show", function(childView, model){
-                  ContactManager.trigger("search:show", model.get("id"));
+                   window.open("#search/" + model.id, '_blank');
+                  //ContactManager.trigger("search:show", model.get("id"));
              });
 
              providersListView.on("childview:search:delete", function(childView, model){

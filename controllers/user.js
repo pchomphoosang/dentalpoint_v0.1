@@ -29,8 +29,8 @@ exports.postLogin = function(req, res, next) {
     if (err) return next(err);
     if (!user) {
 
-      response.error = { msg: info.message };
-      return res.json(response);
+      response.errors = { msg: info.message };
+      return res.status(422).send(response);
       //return res.redirect('/login');
     }
     req.logIn(user, function(err) {

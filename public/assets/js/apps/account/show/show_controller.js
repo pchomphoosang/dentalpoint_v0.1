@@ -23,6 +23,7 @@ ContactManager.module("AccountApp.Show", function(Show, ContactManager, Backbone
 					   console.log("response:"+response.status);
 					   console.log("response___:"+JSON.stringify(response));
 					   if(response.status === 422){
+					   		console.log("response_/:"+response.responseJSON.errors);
 		                    loginview.triggerMethod("form:data:invalid", response.responseJSON.errors);
 		               }else{
 		                    alert("generic.unprocessedError");

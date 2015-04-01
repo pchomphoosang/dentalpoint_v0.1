@@ -16,7 +16,7 @@ ContactManager.module("ContactsApp.Common.Views", function(Views, ContactManager
     },
 
     onFormDataInvalid: function(errors){
-
+      console.log('errors:'+errors);
       var $view = this.$el;
 
       var clearFormErrors = function(){

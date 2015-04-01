@@ -80,7 +80,6 @@ ContactManager.module("Routers.SearchApp", function(SearchAppRouter, ContactMana
   });
 
   ContactManager.on("search:show", function(id){
-    console.log("search:show"+id);
     ContactManager.navigate("search/" + id);
     API.showProvider(id);
   });

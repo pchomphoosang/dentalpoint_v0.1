@@ -14,7 +14,7 @@
   </head>
   </body>
       <div id="header-region"></div>
-      <div id="main-region"></div> 
+      <div id="main-region" class="container"></div> 
       <div id="dialog-region"></div>
 
     <script type="text/template" id="header-template"> 
@@ -62,7 +62,44 @@
     </script>
 
     <script type="text/template" id="provider-list-item">              
-      <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
+             <div class="panel panel-default">
+              <div class="row padall">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+                    <span></span>
+                    <img src="<%- pic %>" />
+                 </div>
+                 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+                    <div class="clearfix">
+                        <div class="pull-left">
+                          <h4>Dr.<%- firstName %> <%- lastName %></h4>
+                          <small><cite title="San Francisco, USA"><i class="glyphicon glyphicon-map-marker">
+                          </i>Bangkok,Thailand</cite></small>
+                          <p>
+                              <i class="glyphicon glyphicon-education"></i>General
+                              <br />
+                              <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                              <br />
+                              <i class="glyphicon glyphicon-earphone"></i>0976241010</p>
+                        </div>
+                        <div class="pull-right">
+                              <a href="#searchNew/<%- id %>" class="btn btn-default js-show"><i class="glyphicon glyphicon-eye-open"></i>View Detail</a>
+                        </div>
+                    </div>
+                    <div>
+      
+                    </div>
+                 </div>
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <script type="text/template" id="provider-list-item_backup">              
           <div class="col-xs-12 col-sm-6 col-md-6">
               <div class="well well-sm">
                   <div class="row">
@@ -79,27 +116,12 @@
                               <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
                               <br />
                               <i class="glyphicon glyphicon-earphone"></i>0976241010</p>
-                              <a href="#search/<%- id %>" class="btn btn-default "><i class="glyphicon glyphicon-eye-open"></i>View Detail</a>
+                              <a href="#search/<%- id %>" class="btn btn-default js-show"><i class="glyphicon glyphicon-eye-open"></i>View Detail</a>
                       </div>
-                      <div class="col-sm-5 col-md-2">
-                      </div>
+
                   </div>
               </div>
           </div>
-      </div>
-    </script>
-
-    <script type="text/template" id="provider-list-item_backup">              
-          <img src="<%- pic %>" width="110" height="110">
-          <p class="recommend">
-            <span>Recommendations</span>
-            <br>
-          </p>
-          <button class="btn btn-small js-delete">
-            <i class="icon-remove"></i>
-            Delete
-          </button>
-          <a href="#providers/<%- id %>" class="btn btn-default"><i class="fa"></i>View Detail</a>
     </script>
     
     <script type="text/template" id="missing-provider-view">
@@ -112,9 +134,18 @@
       <div id="spinner"></div>
     </script>
 
+    <script type="text/template" id="map-view">
+      <div class="row padbig">
+        <div id="map" class="map"></div>
+      </div>
+    </script>
+
     <script type="text/template" id="provider-list-layout">
       <div id="panel-region"></div>
-      <div id="contacts-region"></div>
+      <div class="row">
+        <div id="contacts-region" class="col-lg-6"></div>
+        <div id="map-region" class="col-lg-6"></div>
+      </div>
     </script>
 
     <script type="text/template" id="search-panel">
@@ -148,8 +179,8 @@
     </script>
 
     <script type="text/template" id="paginated-view">
-      <div class="js-pagination-main"></div>
-      <div class="js-pagination-controls"></div>
+        <div class="js-pagination-main"></div>
+        <div class="js-pagination-controls"></div>
     </script>
 
     <script type="text/template" id="pagination-controls">
@@ -446,11 +477,13 @@
             <a href="#" class="signup btn btn-link">SIGN UP</a>
         </div>
       </form>
+      <!--
         <hr/>
         <div class="control-group">
           <p><a href="/auth/facebook" class="btn">Sign in with Facebook</a></p>
           <p><a href="/auth/google" class="btn">Sign in with Google</a></p>
         </div>
+      -->
     </script>
 
     <script type="text/template" id="signup-template">
@@ -699,6 +732,7 @@
       </form>
     </script>
 
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="./assets/js/vendor/jquery.js"></script>
     <script src="./assets/js/vendor/jquery-ui.min.js"></script> 
     <script src="./assets/js/vendor/json2.js"></script>
@@ -761,7 +795,6 @@
 
 
     <script type="text/javascript">
-
       ContactManager.start();
     </script>
   </body>
