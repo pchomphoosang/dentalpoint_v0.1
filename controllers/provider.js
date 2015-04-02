@@ -94,7 +94,7 @@ exports.searchprovider = function(req, res, next){
         var response = [];
         _.each(providers, function(provider){
 
-             var prov = _.pick(provider,['firstName','lastName','phoneNumber','pic']);
+             var prov = _.pick(provider,['firstName','lastName','phoneNumber','pic','location','specialist']);
              prov.id  = provider._id
              prov.updatedAt = provider.updatedAt.toString();
              response.push(prov);
@@ -121,8 +121,7 @@ exports.getprovider = function(req, res, next){
         return res.status(422).send(response);
 
       }else {
-        response.entity = provider;
-        response.entity.updatedAt = provider.updatedAt.toString();
+        response = provider;
         return res.json(response);
       }
 

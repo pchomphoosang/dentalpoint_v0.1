@@ -123,8 +123,7 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
 
   Views.Map = Marionette.ItemView.extend({
     template: "#map-view",
-    className: "col-xs-12 col-sm-12 col-md-6 col-lg-6",
-
+    className: "map-frame",
     init_map: function(index){
         var latitudes = [13.688031, 38.898537, 38.8507126, 38.84753];
         var longitudes = [100.647662, -77.13208299999997, -77.09903600000001, -77.06577290000001];

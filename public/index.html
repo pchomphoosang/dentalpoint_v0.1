@@ -75,14 +75,16 @@
                     <div class="clearfix">
                         <div class="pull-left">
                           <h4>Dr.<%- firstName %> <%- lastName %></h4>
-                          <small><cite title="San Francisco, USA"><i class="glyphicon glyphicon-map-marker">
-                          </i>Bangkok,Thailand</cite></small>
                           <p>
-                              <i class="glyphicon glyphicon-education"></i>General
+                              <i class="glyphicon glyphicon-education"></i>
+                              <%- specialist %> Dentist
                               <br />
-                              <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
+                              <i class="glyphicon glyphicon-earphone"></i>
+                              <%- phoneNumber %>
                               <br />
-                              <i class="glyphicon glyphicon-earphone"></i>0976241010</p>
+                              <small><i class="glyphicon glyphicon-map-marker">
+                             </i><%- location %>,Thailand</cite></small>
+                          </p>
                         </div>
                         <div class="pull-right">
                               <a href="#searchNew/<%- id %>" class="btn btn-default js-show"><i class="glyphicon glyphicon-eye-open"></i>View Detail</a>
@@ -98,31 +100,6 @@
         </div>
       </div>
     </script>
-
-    <script type="text/template" id="provider-list-item_backup">              
-          <div class="col-xs-12 col-sm-6 col-md-6">
-              <div class="well well-sm">
-                  <div class="row">
-                      <div class="col-sm-5 col-md-4">
-                          <img src="<%- pic %>" alt="" class="img-rounded img-responsive" />
-                      </div>
-                      <div class="col-sm-5 col-md-8">
-                          <h4>Dr.<%- firstName %> <%- lastName %></h4>
-                          <small><cite title="San Francisco, USA"><i class="glyphicon glyphicon-map-marker">
-                          </i>Bangkok,Thailand</cite></small>
-                          <p>
-                              <i class="glyphicon glyphicon-education"></i>General
-                              <br />
-                              <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
-                              <br />
-                              <i class="glyphicon glyphicon-earphone"></i>0976241010</p>
-                              <a href="#search/<%- id %>" class="btn btn-default js-show"><i class="glyphicon glyphicon-eye-open"></i>View Detail</a>
-                      </div>
-
-                  </div>
-              </div>
-          </div>
-    </script>
     
     <script type="text/template" id="missing-provider-view">
       <div class="alert alert-error">This contact doesn't exist !</div>
@@ -135,9 +112,7 @@
     </script>
 
     <script type="text/template" id="map-view">
-      <div class="row padbig">
         <div id="map" class="map"></div>
-      </div>
     </script>
 
     <script type="text/template" id="provider-list-layout">
@@ -264,29 +239,14 @@
           <h2 id="sec-about">About Me</h2>
             <section class="container content-section text-center">
               <div class="row">
-                  <div class="col-xs-12 col-sm-6 col-md-6">
-                      <div class="well well-sm">
-                          <div class="row">
-                              <div class="col-sm-5 col-md-4">
-                                  <img src="" alt="" class="img-rounded img-responsive" />
-                              </div>
-                              <div class="col-sm-5 col-md-8">
-                                  <h4>Dr. SuThee Bangkok</h4>
-                                  <small><cite title="San Francisco, USA"><i class="glyphicon glyphicon-map-marker">
-                                  </i>Bangkok,Thailand</cite></small>
-                                  <p>
-                                      <i class="glyphicon glyphicon-education"></i>General
-                                      <br />
-                                      <i class="glyphicon glyphicon-globe"></i><a href="http://www.jquery2dotnet.com">www.jquery2dotnet.com</a>
-                                      <br />
-                                      <i class="glyphicon glyphicon-earphone"></i>0976241010</p>
-                              </div>
-                              <div class="col-sm-5 col-md-2">
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+            <div class="col-sm-4">
+              <ul class="list-group">
+                  <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">Name</strong></span>Dr.<%- firstName %> <%- lastName %></li>
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">specialist</strong></span> <%- specialist %> </li>
+                  <li class="list-group-item text-right"><span class="pull-left"><strong class="">Location</strong></span> <%- location %></li>
+
+              </ul>
             </section>
           <hr>
 

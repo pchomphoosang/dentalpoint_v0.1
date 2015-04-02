@@ -74,13 +74,13 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
       "click button.btn": "searchClicked"
     },
     onShow: function(){
-      /*
+/*
       this.$el.affix({
         offset: {
           top: 30
         }
       });
-      */
+*/
     },
     searchClicked: function(e){
       e.preventDefault();
