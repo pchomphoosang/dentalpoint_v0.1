@@ -242,6 +242,9 @@ background-color: #f5f5f5;
   width: 70%;
   background-color: white;
   height: 200px;
+  
+  top: 0px;
+  z-index: 2;
 }
 .search-main > h2 {
  color: #337ab7;
@@ -250,7 +253,6 @@ background-color: #f5f5f5;
   width: 300px;
   height: 50px;
 }
-
 /**panel-search **/
 
 .provider-list-item {

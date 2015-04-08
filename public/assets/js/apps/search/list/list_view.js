@@ -69,7 +69,7 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
 
   List.Search = Marionette.ItemView.extend({
     template: "#search-panel",
-    className:"panel panel-default panel-search",
+    className:"panel panel-default panel-search ",
     events: {
       "click button.btn": "searchClicked"
     },
