@@ -103,6 +103,7 @@ app.use(passport.session());
   xssProtection: true
 }));
 */
+
 app.use(function(req, res, next) {
   res.locals.user = req.user;
   next();
@@ -187,105 +188,6 @@ app.get('/search', providerController.searchprovider);
 app.get('/search/:providerId', providerController.getprovider); 
 //app.get('/providers', providerController.getprovider);    // get result for search
 //app.put('/providers/:userid', providerController.modifyproviderid);
-
-app.get('/providers_paginated/:id', function(req, res, next){
-  console.log('ddd');
-  var response = {};
-        response.contact = {
-                  "id":1,
-                  "firstName":"Abdul",
-                  "lastName":"Dicki",
-                  "phoneNumber":"1-600-307-5332",
-                  "createdAt":"2014-02-01T12:13:23.592Z",
-                  "updatedAt":"2014-03-24T06:16:35.383Z",
-        };
-         response.acquaintances = [
-                      {
-                      "id":5,
-                      "firstName":"Ursula",
-                      "lastName":"Gislason",
-                      "phoneNumber":"1-268-696-3364"
-                      },
-                      {
-                      "id":19,
-                      "firstName":"Guy",
-                      "lastName":"Gorczany",
-                      "phoneNumber":"1-854-233-0676 x27604"
-                      },
-                      {
-                      "id":64,
-                      "firstName":"Helene",
-                      "lastName":"Daugherty",
-                      "phoneNumber":"216-388-8231 x02495"
-                      },
-                      {
-                      "id":75,
-                      "firstName":"Tyler",
-                      "lastName":"Kassulke",
-                      "phoneNumber":"806.213.9177"
-                      },
-                      {
-                      "id":202,
-                      "firstName":"Courtney",
-                      "lastName":"O'Conner",
-                      "phoneNumber":"657.421.7928"
-                      },
-                      {
-                      "id":215,
-                      "firstName":"Adolfo",
-                      "lastName":"Gottlieb",
-                      "phoneNumber":"701.453.8870 x3040"
-                      }];
-
-    return res.json(response);
-});
-app.get('/providers_paginated', function(req, res, next){
-  var response = {};
-      response.contact = [{
-                  "id":1,
-                  "firstName":"Abdul",
-                  "lastName":"Dicki",
-                  "phoneNumber":"1-600-307-5332",
-                  "createdAt":"2014-02-01T12:13:23.592Z",
-                  "updatedAt":"2014-03-24T06:16:35.383Z",
-                },{
-                      "id":5,
-                      "firstName":"Ursula",
-                      "lastName":"Gislason",
-                      "phoneNumber":"1-268-696-3364"
-                      },
-                      {
-                      "id":19,
-                      "firstName":"Guy",
-                      "lastName":"Gorczany",
-                      "phoneNumber":"1-854-233-0676 x27604"
-                      },
-                      {
-                      "id":64,
-                      "firstName":"Helene",
-                      "lastName":"Daugherty",
-                      "phoneNumber":"216-388-8231 x02495"
-                      },
-                      {
-                      "id":75,
-                      "firstName":"Tyler",
-                      "lastName":"Kassulke",
-                      "phoneNumber":"806.213.9177"
-                      },
-                      {
-                      "id":202,
-                      "firstName":"Courtney",
-                      "lastName":"O'Conner",
-                      "phoneNumber":"657.421.7928"
-                      },
-                      {
-                      "id":215,
-                      "firstName":"Adolfo",
-                      "lastName":"Gottlieb",
-                      "phoneNumber":"701.453.8870 x3040"
-                      }];
-      return res.json(response);
-});
 
 
 app.get('/api', apiController.getApi);
