@@ -7,9 +7,14 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
     events: {
       "click": "highlightName",
       "click a.js-show": "showClicked",
-      "click button.js-delete": "deleteClicked"
+      "click button.js-delete": "deleteClicked",
+      "mouseover .row": "hover"
     },
-
+    hover: function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      this.trigger("search:maker", this.model);
+    },
     flash: function(cssClass){
       var $view = this.$el;
       $view.hide().toggleClass(cssClass).fadeIn(800, function(){
@@ -26,7 +31,6 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
     showClicked: function(e){
       e.preventDefault();
       e.stopPropagation();
-      console.log('------.>??'+ this.model.id);
       this.trigger("search:show", this.model);
     },
 

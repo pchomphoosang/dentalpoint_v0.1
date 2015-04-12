@@ -3,6 +3,7 @@ ContactManager.module("AccountApp", function(AccountApp, ContactManager, Backbon
 	AccountApp.Router = Marionette.AppRouter.extend({
 	    appRoutes: {
 	      "account/login" : "login",
+	      "account/sociallogin/:id" : "sociallogin",
 	      "account/logout": "logout",
 	      "account/signup" : "signup",
 	      "account/forget" : "forget",
@@ -14,6 +15,9 @@ ContactManager.module("AccountApp", function(AccountApp, ContactManager, Backbon
 	var API={
 		login: function(){
 	     	AccountApp.Show.Controller.showLogin();
+	    },
+	    sociallogin: function(id){
+	     	AccountApp.Show.Controller.sociallogin(id);
 	    },
 	    signup: function(){
 	     	AccountApp.Show.Controller.showSignup();
@@ -28,7 +32,6 @@ ContactManager.module("AccountApp", function(AccountApp, ContactManager, Backbon
 	     	AccountApp.Show.Controller.showProfile(id);
 	    },
 	    reset: function(){
-
 	     	AccountApp.Show.Controller.showReset();
 	    }
 	};

@@ -436,13 +436,11 @@
             <a href="#" class="signup btn btn-link">SIGN UP</a>
         </div>
       </form>
-      <!--
         <hr/>
         <div class="control-group">
           <p><a href="/auth/facebook" class="btn">Sign in with Facebook</a></p>
           <p><a href="/auth/google" class="btn">Sign in with Google</a></p>
         </div>
-      -->
     </script>
 
     <script type="text/template" id="signup-template">
@@ -631,7 +629,7 @@
           <input type="hidden" name="msg" id="msg" placeholder="msg" autofocus="autofocus" class="form-control"/>
         </div>
         <div class="control-group"> 
-          <label for="email" class="control-label">Email</label>
+          <label for="email" class="control-label">Firstname</label>
           <input type="firstName" name="firstName" id="firstName" placeholder="Firstname" autofocus="autofocus" class="form-control"/>
         </div>
 
@@ -653,6 +651,12 @@
         <div class="control-group">
           <label for="phoneNumber" class="control-label">Phone number:</label>
           <input id="phoneNumber" name="phoneNumber" type="text" value="<%- phoneNumber %>"/>
+        </div>
+        <div class="control-group">
+          <label for="longitude" class="control-label">Map longitude:</label>
+          <input id="longitude" name="longitude" type="text"/>
+          <label for="latitude" class="control-label">Map latitude:</label>
+          <input id="latitude" name="latitude" type="text"/>
         </div>
         <div class="control-group">
           <label for="location" class="control-label">services location:</label>

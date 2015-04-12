@@ -35,9 +35,7 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
       var loadingView = new ContactManager.Common.Views.Loading();
       layoutView.contactsRegion.show(loadingView);
 
-      //--todo Map --//
-      var mapPanel   = new ContactManager.Common.Views.Map();
-      layoutView.mapRegion.show(mapPanel);
+
 
       console.log("keyword :"+JSON.stringify( options));
       var fetchingproviders = ContactManager.request("search:entities",{ parameters: options, keys: keysearch});
@@ -48,7 +46,10 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
 
              providers.goTo(options.page);
              ContactManager.trigger("page:change",options);
-
+             //--todo Map --//
+             var mapPanel   = new ContactManager.Common.Views.Map({collection: providers});
+             layoutView.mapRegion.show(mapPanel);
+      
              var providersListView = new ContactManager.Common.Views.PaginatedView({
                  collection: providers,
                  mainView: List.Contacts,
@@ -56,14 +57,15 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
                  propagatedEvents: [
                      "childview:search:show",
                      "childview:search:edit",
-                     "childview:search:delete"
+                     "childview:search:delete",
+                     "childview:search:maker"
                  ]
              });
                         
              providersListView.on("page:change", function(childView, model){
                   ContactManager.trigger("page:change", _.clone(providers.parameters.attributes));
              });
-
+            
              providersListView.on("childview:search:show", function(childView, model){
                    window.open("#search/" + model.id, '_blank');
                   //ContactManager.trigger("search:show", model.get("id"));
@@ -72,8 +74,12 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
              providersListView.on("childview:search:delete", function(childView, model){
                   model.destroy();
              });
-                          
-            layoutView.contactsRegion.show(providersListView);
+             
+             providersListView.on("childview:search:maker", function(childView, model){
+                console.log('?L:'+JSON.stringify(model) );
+             });
+             
+             layoutView.contactsRegion.show(providersListView);
                       
        });
     }

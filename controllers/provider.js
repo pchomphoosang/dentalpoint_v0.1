@@ -16,7 +16,10 @@ exports.insertprovider = function(req, res, next) {
     })
   },function(count){
     var count = count + 1;
-
+    var loc= [];
+    loc[0] = req.body.longitude || 0;
+    loc[1] = req.body.latitude || 0;
+    
     var provider = new Provider({
       id: count,
       firstName: req.body.firstName,
@@ -27,6 +30,7 @@ exports.insertprovider = function(req, res, next) {
       address1: req.body.address1,
       address2: req.body.address1,
       location: req.body.location,
+      maploc: loc,
       pic: req.body.pic,
       owner: req.query.owner,
     });
@@ -94,7 +98,7 @@ exports.searchprovider = function(req, res, next){
         var response = [];
         _.each(providers, function(provider){
 
-             var prov = _.pick(provider,['firstName','lastName','phoneNumber','pic','location','specialist']);
+             var prov = _.pick(provider,['firstName','lastName','phoneNumber','pic','location','specialist','maploc']);
              prov.id  = provider._id
              prov.updatedAt = provider.updatedAt.toString();
              response.push(prov);

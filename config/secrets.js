@@ -38,8 +38,8 @@ module.exports = {
   },
 
   sendgrid: {
-    user: process.env.SENDGRID_USER || 'hslogin',
-    password: process.env.SENDGRID_PASSWORD || 'hspassword00'
+    user: process.env.SENDGRID_USER || 'pawat',
+    password: process.env.SENDGRID_PASSWORD || 'icomefrom412428'
   },
 
   nyt: {
@@ -52,9 +52,9 @@ module.exports = {
   },
 
   facebook: {
-    clientID: process.env.FACEBOOK_ID || '754220301289665',
-    clientSecret: process.env.FACEBOOK_SECRET || '41860e58c256a3d7ad8267d3c1939a4a',
-    callbackURL: '/auth/facebook/callback',
+    clientID: process.env.FACEBOOK_ID || '1444576335805832',
+    clientSecret: process.env.FACEBOOK_SECRET || '29638c9733ab7b146d6747859f59c97c',
+    callbackURL: 'https://realcrowdapp-c9-powatt.c9.io/auth/facebook/callback',
     passReqToCallback: true
   },
 

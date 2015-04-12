@@ -9,6 +9,7 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
 var OAuthStrategy = require('passport-oauth').OAuthStrategy;
 var OAuth2Strategy = require('passport-oauth').OAuth2Strategy;
+var https = require('https');
 
 var secrets = require('./secrets');
 var User = require('../models/User');
@@ -105,11 +106,40 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
  * Sign in with Facebook.
  */
 passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, refreshToken, profile, done) {
+  if ( accessToken ) {
+      var options = {
+          host: 'graph.facebook.com',
+          port: 443,
+          path: '/v2.3/me/friends' + '?access_token=' + accessToken, //apiPath example: '/me/friends'
+          method: 'GET'
+      };
+      
+      var buffer = ''; //this buffer will be populated with the chunks of the data received from facebook
+      var request = https.get(options, function(result){
+          result.setEncoding('utf8');
+          result.on('data', function(chunk){
+              buffer += chunk;
+          });
+  
+          result.on('end', function(){
+              //callback(buffer);
+              console.log('buffer: '+buffer);
+          });
+      });
+
+      request.on('error', function(e){
+          console.log('error from facebook.getFbData: ' + e.message)
+      });
+
+      request.end();
+  }
+  
   if (req.user) {
     User.findOne({ facebook: profile.id }, function(err, existingUser) {
       if (existingUser) {
-        req.flash('errors', { msg: 'There is already a Facebook account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
-        done(err);
+        //req.flash('errors', { msg: 'There is already a Facebook account that belongs to you. Sign in with that account or delete it, then link it with your current account.' });
+        req.err =  { msg: 'There is already a Facebook account that belongs to you. Sign in with that account or delete it, then link it with your current account.' };
+        done(err,existingUser);
       } else {
         User.findById(req.user.id, function(err, user) {
           user.facebook = profile.id;
@@ -118,7 +148,8 @@ passport.use(new FacebookStrategy(secrets.facebook, function(req, accessToken, r
           user.profile.gender = user.profile.gender || profile._json.gender;
           user.profile.picture = user.profile.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
           user.save(function(err) {
-            req.flash('info', { msg: 'Facebook account has been linked.' });
+            //req.flash('info', { msg: 'Facebook account has been linked.' });
+            req.info = { msg: 'Facebook account has been linked.' };
             done(err, user);
           });
         });

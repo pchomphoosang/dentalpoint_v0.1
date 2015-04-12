@@ -10,6 +10,10 @@ var providerSchema = new mongoose.Schema({
   address1: String,
   address2: String,
   location: String,
+  maploc: {
+    type: [Number],  // [<longitude>, <latitude>]
+    index: '2d'      // create the geospatial index
+  },
   pic: String,
   owner: String,
   createdAt: { type: Date, default: Date.now },

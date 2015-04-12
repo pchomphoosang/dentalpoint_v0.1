@@ -363,7 +363,7 @@ exports.getProfile = function(req, res, next) {
 
 
     var response = {};
-    var keys = ['email','profile'];
+    var keys = ['email','profile','_id']; //var keys = ['id','firstName','lastName','phoneNumber'];
     User.findOne({_id: req.params.id},function(err, user) {
     if (err) return next(err);
 

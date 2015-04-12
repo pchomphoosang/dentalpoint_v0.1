@@ -180,7 +180,7 @@ app.get('/api', apiController.getApi);
  * API Testing API.
  */
 
-app.get('/providers', providerController.getservice); 
+app.get('/providers',  providerController.getservice); 
 app.post('/providers', providerController.insertprovider);
 app.delete('/providers', providerController.deleteservice);
 
@@ -205,9 +205,14 @@ app.get('/api/lob', apiController.getLob);
  */
 
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));
-app.get('/auth/facebook/callback', passport.authenticate('facebook', { failureRedirect: '/login' }), function(req, res) {
-  res.redirect(req.session.returnTo || '/');
+
+app.get('/auth/facebook/callback', passport.authenticate('facebook'), 
+  function(req, res) {
+    console.log('U1'+ JSON.stringify(req.err));
+    console.log('U2'+ JSON.stringify(req.info));
+    res.redirect('/#account/sociallogin/'+req.user._id);
 });
+
 app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
   res.redirect(req.session.returnTo || '/');

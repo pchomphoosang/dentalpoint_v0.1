@@ -36,6 +36,26 @@ ContactManager.module("AccountApp.Show", function(Show, ContactManager, Backbone
 
 			ContactManager.dialogRegion.show(loginview);		
 		},
+		sociallogin: function(userId){
+			if (userId) {
+				var user = new ContactManager.Entities.User({id: userId});
+			  	var fetchprofile = user.fetch();
+				$.when(fetchprofile).done(function(data){
+					console.log("profile:" +JSON.stringify(data));
+					var profile  = new ContactManager.Entities.User(data);
+					ContactManager.trigger("header:update",data);
+				}).fail(function(response){
+					console.log("response:"+response.status);
+					console.log("response___:"+JSON.stringify(response));
+					if(response.status === 422){
+			             alert("generic.unprocessedError");
+			        } else{
+			            alert("generic.unprocessedError");
+			        }
+				});
+
+			}
+		},
 
 		showSignup: function(){
 
