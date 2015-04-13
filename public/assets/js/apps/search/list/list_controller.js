@@ -47,7 +47,16 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
              providers.goTo(options.page);
              ContactManager.trigger("page:change",options);
              //--todo Map --//
-             var mapPanel   = new ContactManager.Common.Views.Map({collection: providers});
+             console.log("providers:::"+providers);
+
+             //var mapPanel   = new ContactManager.Common.Views.Map({
+             // collection: providers
+             //});
+
+             var mapPanel   = new ContactManager.Common.Views.Map({
+              collection: providers
+             });
+
              layoutView.mapRegion.show(mapPanel);
       
              var providersListView = new ContactManager.Common.Views.PaginatedView({
@@ -77,6 +86,7 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
              
              providersListView.on("childview:search:maker", function(childView, model){
                 console.log('?L:'+JSON.stringify(model) );
+                mapPanel.hightlight(model);
              });
              
              layoutView.contactsRegion.show(providersListView);

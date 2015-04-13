@@ -124,61 +124,46 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
   Views.Map = Marionette.ItemView.extend({
     template: "#map-view",
     className: "map-frame col-xs-12 col-sm-12 col-md-9 col-lg-9",
-    
     initialize: function(options){
-      console.log(JSON.stringify(options));
-      this.collection = options.collection;
+      this.arrMarkers = {};
     },
     init_map: function() {
-      
-        _.each(this.collection, function(provider){
-          console.log('provider:'+JSON.stringify(provider));
-        });
-        
+        that = this;
         var bounds = new google.maps.LatLngBounds();
         var mapOptions = {
             mapTypeId: 'roadmap'
         };
         var map = new google.maps.Map(document.getElementById("map"), mapOptions );
         map.setTilt(45);
+
+        infoWindow = new google.maps.InfoWindow();
         
-        var markers = [
-            ['Bangkok Hosital, Bangkok', 13.749370, 100.583448],
-            ['Bumrungrad International Hospital Bangkok, Bangkok', 13.746256, 100.552327],
-            ['The Parkland Grand Taksin, Bangkok', 13.716477, 100.480532],
-            ['Park Plaza, Bangkok', 13.735086, 100.560660],
-            ['Asoke Residence Sukhumvit, Bangkok', 13.746836, 100.561734],
-            ['MBK Center Phayathai Road Bangkok, Bangkok', 13.744633, 100.529990],
-            ['Centara Grand at Central Plaza Ladprao,Bangkok', 13.817435, 100.562745],
-            ['Union Mall, Bangkok', 13.813684, 100.562316],
-            ['Horwang School, Bangkok', 13.819060, 100.562574],
-            ['Surasak Montri School,Bangkok', 13.776091, 100.560514]
-        ];
-        var infoWindow = new google.maps.InfoWindow(), marker, i;
-        var arrMarkers = {};
-        for( i = 0; i < markers.length; i++ ) {
-            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+        var i =0;
+        var marker;
+        this.collection.forEach(function(e) {
+
+            var position = new google.maps.LatLng(e.attributes.maploc[0], e.attributes.maploc[1]);
             bounds.extend(position);
-            
+
             marker = new google.maps.Marker({
                     position: position,
                     map: map,
-                    title: markers[i][0],
+                    title: e.attributes.location,
                     icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
                     animation: google.maps.Animation.DROP
             });
-            arrMarkers[i] = marker;
-            // Allow each marker to have an info window    
-            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            that.arrMarkers[i] = marker;
+            google.maps.event.addListener(marker, 'click', (function(marker) {
                 return function() {
-                    infoWindow.setContent(markers[i][0]);
+                    infoWindow.setContent(e.attributes.location);
                     infoWindow.open(map, marker);
                 }
-            })(marker, i));
+            })(marker));
 
             // Automatically center the map fitting all markers on the screen
             map.fitBounds(bounds);
-        }
+            i++;
+        });
     },
 
     onShow: function(){
@@ -192,16 +177,26 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
       
     },
 
-    searchClicked: function(e){
-      
-       for( j = 0; j < markers.length; j++ ) {
-         if (j === i) {
-            arrMarkers[j].setIcon('');
-         }else {
-            arrMarkers[j].setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
-         }
+    hightlight: function( model ){
+
+      var position = new google.maps.LatLng(model.attributes.maploc[0], model.attributes.maploc[1]);
+
+       for( j = 0; j < this.collection.length ; j++ ) {
+          var coodi = [this.arrMarkers[j].position.k , this.arrMarkers[j].position.D ];
+          var focus = [position.k , position.D ];
+          console.log(coodi+"<:>"+focus);
+          if (coodi[0]==focus[0] && coodi[1]==focus[1]){
+              console.log("equals");
+              this.arrMarkers[j].setIcon('');
+          }else {
+              console.log(" not equals");
+              this.arrMarkers[j].setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
+          }
+
        }
+
     }
+    
   });
 
 });
