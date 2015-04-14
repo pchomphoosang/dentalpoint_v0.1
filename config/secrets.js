@@ -23,7 +23,7 @@ module.exports = {
   // mongodb://<dbuser>:<dbpassword>@ds061308.mongolab.com:61308/testpawat
   // mongodb://pawat:pawat@ds061308.mongolab.com:61308/testpawat
   // mongodb://localhost:27017/test
-  db: process.env.MONGODB || 'mongodb://localhost:27017/test',
+  db: process.env.MONGODB || 'mongodb://pawat:pawat@ds061308.mongolab.com:61308/testpawat',
 
   sessionSecret: process.env.SESSION_SECRET || 'Your Session Secret goes here',
 
