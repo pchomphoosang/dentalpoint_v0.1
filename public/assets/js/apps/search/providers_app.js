@@ -79,6 +79,11 @@ ContactManager.module("Routers.SearchApp", function(SearchAppRouter, ContactMana
     API.listProviders();
   });
 
+  ContactManager.on("search_main:list", function(data){
+    ContactManager.navigate("search");
+    API.listProviders();
+  });
+
   ContactManager.on("search:show", function(id){
     ContactManager.navigate("search/" + id);
     API.showProvider(id);

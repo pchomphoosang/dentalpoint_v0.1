@@ -371,8 +371,29 @@
     <script type="text/template" id="main-view"> 
         <div class="row">
           <div class="well search-main text-center">
-              <h2 id="search-txt">Search Dentists</h2>
-              <p><a href="#search" class="btn btn-primary"> Start Searching..</a></p>
+              <h2 id="search-txt">Search doctors and dentists in your area</h2>
+              <form class="form-search form-inline text-center" >
+                  <select class="search-doc">
+                      <option >All Specialities</option>
+                      <option >General</option>
+                      <option >Implantologists</option>
+                      <option >Prosthodontists</option>
+                      <option >Operative and Cosmetic Dentists</option>
+                      <option >Orthodontists & Invisalign Specialist</option>
+                      <option >Periodontists</option>
+                      <option >Oral Surgeon</option>
+                  </select>
+                  <select class="search-location">
+                      <option >Bangkok</option>
+                      <option >Pattaya</option>
+                      <option >Chiang Mai</option>
+                      <option >Phuket</option>
+                      <option >Krabi</option>
+                  </select>
+                  <div class="btn-group">
+                      <button class="btn btn-primary btn-lg js-submit">Search</button>
+                  </div>
+              </form>              
           </div>        
         </div>
         <br><br><br><br><br>

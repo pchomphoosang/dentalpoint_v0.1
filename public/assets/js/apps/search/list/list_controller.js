@@ -46,13 +46,6 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
              console.log('feedback:'+JSON.stringify(providers));
              console.log("options.page:"+options.page);
              console.log("options.criterion:"+options.criterion);
-            /*
-            if(options.criterion){
-              searchPanel.once("show", function(){
-                searchPanel.triggerMethod("set:filter:criterion", options.criterion);
-              });
-            }
-            */
 
              ContactManager.trigger("page:change",options);
 

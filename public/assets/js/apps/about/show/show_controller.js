@@ -3,6 +3,11 @@ ContactManager.module("MainApp.Show", function(Show, ContactManager, Backbone, M
 	var Controller = Marionette.Controller.extend({
 		showAbout: function(){
 			var view = new Show.Message();
+			view.on('submit:search',function(data){
+				console.log('--------->>'+JSON.stringify(data) );   
+
+				ContactManager.trigger("search_main:list",data);  
+          	})
 			ContactManager.mainRegion.show(view);
 		}
 	});
