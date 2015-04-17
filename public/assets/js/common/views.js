@@ -82,7 +82,7 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
 
     regions: {
       paginationControlsRegion: ".js-pagination-controls",
-      paginationMainRegion: ".js-pagination-main"
+      paginationMainRegion: ".js-pagination-main",
     },
     
     initialize: function(options){
@@ -98,8 +98,6 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
         collection: this.collection
       });
 
-      // todo //
-      var mapView = new Views.Map();
 
       var self = this;
       this.listenTo(controls, "page:change", function(page){
@@ -120,14 +118,19 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
 
   });
 
-
   Views.Map = Marionette.ItemView.extend({
     template: "#map-view",
     className: "map-frame col-xs-12 col-sm-12 col-md-9 col-lg-9",
+
     initialize: function(options){
+      this.listenTo(this.collection ,"map:change", function(){
+         this.init_map();
+      });
+      
       this.arrMarkers = {};
     },
     init_map: function() {
+
         that = this;
         var bounds = new google.maps.LatLngBounds();
         var mapOptions = {
@@ -167,6 +170,7 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
     },
 
     onShow: function(){
+
         this.init_map( );
 
         this.$el.affix({
@@ -186,10 +190,8 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
           var focus = [position.k , position.D ];
           console.log(coodi+"<:>"+focus);
           if (coodi[0]==focus[0] && coodi[1]==focus[1]){
-              console.log("equals");
               this.arrMarkers[j].setIcon('');
           }else {
-              console.log(" not equals");
               this.arrMarkers[j].setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png');
           }
 

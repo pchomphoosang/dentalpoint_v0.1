@@ -43,22 +43,21 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
 
              console.log('feedback:'+JSON.stringify(providers));
              console.log("options.page:"+options.page);
+             console.log("options.criterion:"+options.criterion);
+            /*
+            if(options.criterion){
+              searchPanel.once("show", function(){
+                searchPanel.triggerMethod("set:filter:criterion", options.criterion);
+              });
+            }
+            */
 
-             providers.goTo(options.page);
              ContactManager.trigger("page:change",options);
-             //--todo Map --//
-             console.log("providers:::"+providers);
 
-             //var mapPanel   = new ContactManager.Common.Views.Map({
-             // collection: providers
-             //});
-
-             var mapPanel   = new ContactManager.Common.Views.Map({
-              collection: providers
+             var mapView =  new ContactManager.Common.Views.Map({
+                 collection: providers
              });
 
-             layoutView.mapRegion.show(mapPanel);
-      
              var providersListView = new ContactManager.Common.Views.PaginatedView({
                  collection: providers,
                  mainView: List.Contacts,
@@ -85,12 +84,11 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
              });
              
              providersListView.on("childview:search:maker", function(childView, model){
-                console.log('?L:'+JSON.stringify(model) );
-                mapPanel.hightlight(model);
+                  mapView.hightlight(model);
              });
-             
-             layoutView.contactsRegion.show(providersListView);
-                      
+
+             layoutView.mapRegion.show(mapView);   
+             layoutView.contactsRegion.show(providersListView);                
        });
     }
   });

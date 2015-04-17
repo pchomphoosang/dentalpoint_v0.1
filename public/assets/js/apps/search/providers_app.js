@@ -70,7 +70,7 @@ ContactManager.module("Routers.SearchApp", function(SearchAppRouter, ContactMana
   };
 
   ContactManager.on("page:change", function(options){
-    console.log("serializeParams(options)"+serializeParams(options));
+    console.log(">>serializeParams(options)"+serializeParams(options));
     ContactManager.navigate("search/filter/" + serializeParams(options));
   });
 

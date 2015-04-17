@@ -82,8 +82,7 @@ exports.deleteservice = function(req, res, next) {
     }                 
   });
 };
-
-
+/*
 //  Todo need to modify  search keyword
 exports.searchprovider = function(req, res, next){
 
@@ -108,6 +107,114 @@ exports.searchprovider = function(req, res, next){
     });
 
 }
+*/
+// skip / limit
+//resultCount":503
+// • filter:
+// location
+exports.searchprovider = function(req, res, next){
+
+  console.log('postget receive Query: '+JSON.stringify(req.query));
+  console.log('postget receive expert: '+JSON.stringify(req.query.specialist));
+  console.log('postget receive  location: '+JSON.stringify(req.query.location));
+  console.log('postget receive   count: '+JSON.stringify(req.query.count));
+  console.log('postget receive  offset: '+JSON.stringify(req.query.offset));
+  console.log('postget receive  filter: '+JSON.stringify(req.query.filter));
+  // {specialist: req.query.specialist, location:req.query.location }
+  var offset = parseInt(req.query.offset);
+  var count  = parseInt(req.query.count);
+  var query  = { location : "Bangkok" };
+  var field  = {};
+  var response = {};
+  async.waterfall([function(done){
+    Provider.count(query,function( err, count){
+      done(err,count);
+    })
+  },function(count){
+
+    Provider.find(query,field ,{ skip: offset,limit: count }, function(err, results) {
+
+      if (results) {
+        var result = [];
+        _.each(results, function(provider){
+             var prov = _.pick(provider,['firstName','lastName','phoneNumber','pic','location','specialist','maploc']);
+             prov.id  = provider._id
+             result.push(prov);
+        })
+      }
+      response.resultCount = count;
+      response.result = result;
+      return res.json(response);
+    });
+
+  }]);
+  
+}
+/*
+  Provider.aggregate([
+    {$match:
+      {
+         location : "Bangkok"
+      }
+    },
+    {$project:
+      {
+        _id: 1, firstName: 1, phoneNumber:1, specialist:1,
+        procedures:1, address1:1, address2:1,location:1,
+        maploc:1, pic:1,type: {$literal: 1}
+      }
+    },
+    {$skip:offset},
+    {$limit:count},
+    {$group:
+      {
+        _id:'$type',
+        resultCount:{$sum:1},
+        test:'$type',
+        result:{
+          $addToSet: {
+              id: "$_id",
+              firstName:"$firstName",
+              phoneNumber:"$phoneNumber",
+              specialist:"$specialist",
+              procedures:"$procedures",
+              address1:"$address1",
+              address2:"$address2",
+              location:"$location",
+              maploc:"$maploc",
+              pic:"$pic",
+          },
+
+        }
+      }
+    }
+  ],function(err, result){
+      var response = {};
+      response = _.pick(result[0],['resultCount','result']);
+      console.log('response:'+JSON.stringify(response));
+      return res.json(response);
+  })
+
+*/
+
+  /*
+  Provider.find(function(err, providers) {
+      if (err) return next(err);
+
+      if (providers) {
+        var response = [];
+        _.each(providers, function(provider){
+
+             var prov = _.pick(provider,['firstName','lastName','phoneNumber','pic','location','specialist','maploc']);
+             prov.id  = provider._id
+             prov.updatedAt = provider.updatedAt.toString();
+             response.push(prov);
+        })
+        //return res.json(response);
+      }
+    });
+    */
+
 
 //  Todo need to modify  search keyword
 exports.getprovider = function(req, res, next){

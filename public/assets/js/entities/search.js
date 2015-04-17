@@ -43,21 +43,23 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
   });
 
   //Entities.configureStorage(Entities.Contact);
-
   //Entities.configureStorage(Entities.Contact);
 
-  Entities.SearchCollection = Backbone.Paginator.clientPager.extend({
+  Entities.SearchCollection = Backbone.Paginator.requestPager.extend({
     model: Entities.SearchResult,
+
     initialize: function(options){
       options || (options = {});
 
       var params = options.parameters || { page: 1 };
-      var keys = options.keys || {"Specialist":"*","location":"*"};
       this.parameters = new Backbone.Model(params);
+
+      var keys = options.keys || {"Specialist":"*","location":"*"};
       this.keys = new Backbone.Model(keys);
+
       this.paginator_core = {
         dataType: "json",
-        url: "search"
+        url: "search?"
       };
 
       this.paginator_ui = {
@@ -70,18 +72,35 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
       this.server_api = {
         specialist : function() { return keys.Specialist; },
         location : function() { return keys.location; },
+        count: function() { return this.perPage },
+        offset: function() { return ((this.parameters.get("page") || 1) - 1) * this.perPage },
+        filter: function() { return this.parameters.get("criterion"); }
       };
 
       var self = this;
 
-      this.listenTo(this.parameters, "change", function(params){
-            self.goTo(parseInt(self.parameters.get("page"), 10));
-            self.trigger("page:change:after");
+      this.listenTo(this.parameters, "change", function(model){
+        if(_.has(model.changed, "criterion")){
+          self.server_api.filter = self.parameters.get("criterion");
+        }
+        $.when(this.pager()).done(function(){
+          self.trigger("page:change:after");
+
+          self.trigger("map:change");
+        });
+      });
+
+      this.on("sync", function(){
+        this.sort({silent: true});
+        this.trigger("reset");
       });
     },
     parse: function(response){
-      var data = response;
-      console.log('data'+JSON.stringify(data));
+
+      var data = response.result;
+      this.totalRecords = response.resultCount;
+      this.totalPages = Math.ceil(this.totalRecords / this.perPage);
+      this.currentPage = this.parameters.get("page");
       return data;
     },
     comparator: "firstName"
