@@ -114,18 +114,17 @@ exports.searchprovider = function(req, res, next){
 // location
 exports.searchprovider = function(req, res, next){
 
-  console.log('postget receive Query: '+JSON.stringify(req.query));
-  console.log('postget receive expert: '+JSON.stringify(req.query.specialist));
-  console.log('postget receive  location: '+JSON.stringify(req.query.location));
-  console.log('postget receive   count: '+JSON.stringify(req.query.count));
-  console.log('postget receive  offset: '+JSON.stringify(req.query.offset));
-  console.log('postget receive  filter: '+JSON.stringify(req.query.filter));
-  // {specialist: req.query.specialist, location:req.query.location }
   var offset = parseInt(req.query.offset);
   var count  = parseInt(req.query.count);
-  var query  = { location : "Bangkok" };
+
   var field  = {};
   var response = {};
+  var query  = {specialist: req.query.specialist, location:req.query.location };
+
+  if (query.specialist.indexOf("All") > -1 ) {
+      query  = {location:req.query.location };
+  }
+
   async.waterfall([function(done){
     Provider.count(query,function( err, count){
       done(err,count);

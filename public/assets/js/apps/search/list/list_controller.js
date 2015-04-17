@@ -8,24 +8,26 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
       var layoutView = new List.Layout();
       var searchPanel= new List.Search();
 
-
       layoutView.on("show", function(){
 
           layoutView.panelRegion.show(searchPanel);
-           searchPanel.on('submit:search',function(data){
+          List.Controller.FetchProvider({"Specialist":"All Specialities","location":"Bangkok"} ,layoutView,options);
+          searchPanel.on('submit:search',function(data){
+                console.log(JSON.stringify(data));
                  List.Controller.FetchProvider( data, layoutView,options);             
           })
       });
+
       ContactManager.mainRegion.show(layoutView);      
     },
-
     listProvidersSub: function(options){
+
       console.log("listProvidersSub options"+options);
       var layoutView = new List.Layout();
       var searchPanel= new List.Search();
       layoutView.on("show", function(){
           layoutView.panelRegion.show(searchPanel);
-          List.Controller.FetchProvider("dd",layoutView,options);
+          List.Controller.FetchProvider("ss" ,layoutView,options);
       });
       ContactManager.mainRegion.show(layoutView);            
     },
@@ -84,7 +86,7 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
              });
              
              providersListView.on("childview:search:maker", function(childView, model){
-                  mapView.hightlight(model);
+                mapView.hightlight(model);
              });
 
              layoutView.mapRegion.show(mapView);   

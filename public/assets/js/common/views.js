@@ -188,7 +188,6 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
        for( j = 0; j < this.collection.length ; j++ ) {
           var coodi = [this.arrMarkers[j].position.k , this.arrMarkers[j].position.D ];
           var focus = [position.k , position.D ];
-          console.log(coodi+"<:>"+focus);
           if (coodi[0]==focus[0] && coodi[1]==focus[1]){
               this.arrMarkers[j].setIcon('');
           }else {
