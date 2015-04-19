@@ -27,9 +27,6 @@
             </div>
 
             <div class="navbar-collapse collapse">
-              <ul class="nav navbar-nav navbar-left">
-                <p><a href="#search" class="btn btn-primary">Search</a></p>
-              </ul>
               <ul class="nav navbar-nav navbar-right">
                 <% if ( !login_status ) { %>
                     <li><button type="button" id="loginlink" class="btn btn-default navbar-btn">Login / Create Account</button></li>
@@ -127,7 +124,7 @@
 
     <script type="text/template" id="search-panel" >
       <form class="form-search form-inline text-center" >
-          <select class="search-doc">
+          <select class="form-control" id="search-doc">
               <option value="All Specialities">All Specialities</option>
               <option value="General">General</option>
               <option value="Implantologists">Implantologists</option>
@@ -137,7 +134,7 @@
               <option value="Periodontists">Periodontists</option>
               <option value="Oral Surgeon">Oral Surgeon</option>
           </select>
-          <select class="search-location">
+          <select class="form-control" id="search-location">
               <option value="Bangkok">Bangkok</option>
               <option value="Pattaya">Pattaya</option>
               <option value="Chiang Mai">Chiang Mai</option>
@@ -145,13 +142,13 @@
               <option value="Krabi">Krabi</option>
           </select>
           <div class="btn-group">
-              <button class="btn btn-primary btn-lg js-submit">Search</button>
+              <button class="btn btn-primary js-submit">Search</button>
           </div>
       </form>
     </script>
 
     <script type="text/template" id="provider-list-none">
-      <td colspan="3">No contacts to display</td>
+      <td colspan="3">No Results matched</td>
     </script>
 
     <script type="text/template" id="paginated-view">
@@ -372,8 +369,9 @@
         <div class="row">
           <div class="well search-main text-center">
               <h2 id="search-txt">Search doctors and dentists in your area</h2>
+              <br><br>
               <form class="form-search form-inline text-center" >
-                  <select class="search-doc">
+                  <select class="search-doc form-control">
                       <option value="All Specialities">All Specialities</option>
                       <option value="General">General</option>
                       <option value="Implantologists">Implantologists</option>
@@ -383,7 +381,7 @@
                       <option value="Periodontists">Periodontists</option>
                       <option value="Oral Surgeon">Oral Surgeon</option>
                   </select>
-                  <select class="search-location">
+                  <select class="search-location form-control">
                       <option value="Bangkok">Bangkok</option>
                       <option value="Pattaya">Pattaya</option>
                       <option value="Chiang Mai">Chiang Mai</option>
@@ -391,7 +389,7 @@
                       <option value="Krabi">Krabi</option>
                   </select>
                   <div class="btn-group">
-                      <button class="btn btn-primary btn-lg js-submit">Search</button>
+                      <button class="btn btn-primary btn-lg js-submit js-main">Search</button>
                   </div>
               </form>             
           </div>        

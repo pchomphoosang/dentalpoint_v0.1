@@ -7,8 +7,8 @@ body {
   min-height: 100%;
 }
 
-.btn {
-  margin-top:10px;
+.js-main {
+  line-height: 0.85;
 }
 
 /* footer */
@@ -74,8 +74,17 @@ background-color: #f5f5f5;
 
     .padall {
         padding: 10px;
+        width: 80%;
+        height: 80%;
+        -webkit-transition: width 2s; /* Safari */
+        transition: width 2s;
+        -webkit-transition-timing-function: linear;
+    }
+
+    .padall:hover {
         width: 100%;
         height: 100%;
+
     }
 
     .padbig {
@@ -253,7 +262,17 @@ background-color: #f5f5f5;
   width: 300px;
   height: 50px;
 }
+
 /**panel-search **/
+
+#search-panel {
+  position: fixed;
+  top: 30px;
+}
+
+#map-region {
+
+}
 
 .provider-list-item {
   margin-right:auto;
@@ -261,6 +280,10 @@ background-color: #f5f5f5;
   background: white;
 }
 
+.provider-list {
+  overflow: scroll;
+  height: 1024px;
+}
 
 .glyphicon {  margin-bottom: 10px;margin-right: 10px;}
 

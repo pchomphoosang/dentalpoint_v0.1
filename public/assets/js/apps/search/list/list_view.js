@@ -93,16 +93,17 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
       });
 */ 
      if (this.keys) {
-      $("select[class="+ "search-doc" +"] option[value='"+ this.keys.Specialist +"']").attr('selected', 'selected');
+        console.log("this.keys:::"+JSON.stringify(this.keys) );
+        $("select[class=form-control] option[value='"+ this.keys.Specialist +"']").attr('selected', 'selected');
 
-      $("select[class="+ "search-location" +"] option[value='"+ this.keys.location +"']").attr('selected', 'selected');
+        $("select[class=form-control] option[value='"+ this.keys.location +"']").attr('selected', 'selected');
      }
     },
     searchClicked: function(e){
       e.preventDefault();
       e.stopPropagation();
-      var expert = this.$(".search-doc option:selected").text();
-      var keylocate = this.$(".search-location option:selected").text();
+      var expert = this.$("#search-doc option:selected").text();
+      var keylocate = this.$("#search-location option:selected").text();
       var  data = {Specialist : expert , location: keylocate};
       this.trigger("submit:search", data );
     }
