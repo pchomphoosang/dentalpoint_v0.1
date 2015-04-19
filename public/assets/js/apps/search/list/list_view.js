@@ -77,6 +77,13 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
     events: {
       "click button.btn": "searchClicked"
     },
+    initialize: function(options){
+
+        if(options.keys){
+          this.update = true;
+          this.keys   = options.keys;
+        }
+    },
     onShow: function(){
 /*
       this.$el.affix({
@@ -84,7 +91,12 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
           top: 30
         }
       });
-*/
+*/ 
+     if (this.keys) {
+      $("select[class="+ "search-doc" +"] option[value='"+ this.keys.Specialist +"']").attr('selected', 'selected');
+
+      $("select[class="+ "search-location" +"] option[value='"+ this.keys.location +"']").attr('selected', 'selected');
+     }
     },
     searchClicked: function(e){
       e.preventDefault();

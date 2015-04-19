@@ -54,7 +54,8 @@ ContactManager.module("Entities", function(Entities, ContactManager, Backbone, M
       var params = options.parameters || { page: 1 };
       this.parameters = new Backbone.Model(params);
 
-      var keys = options.keys || {"Specialist":"*","location":"*"};
+      var keys = options.keys || {"Specialist":"All Specialities","location":"Bangkok"};
+      console.log('options.parameters:::'+JSON.stringify(keys));
       this.keys = new Backbone.Model(keys);
 
       this.paginator_core = {

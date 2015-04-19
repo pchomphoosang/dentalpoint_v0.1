@@ -14,8 +14,7 @@ ContactManager.module("SearchApp", function(SearchApp, ContactManager, Backbone,
 ContactManager.module("Routers.SearchApp", function(SearchAppRouter, ContactManager, Backbone, Marionette, $, _){
   SearchAppRouter.Router = Marionette.AppRouter.extend({
     appRoutes: {
-      "search": "listProviders", 
-      "search(/filter/:params)": "listProvidersSub",
+      "search(/filter/:params)": "listProviders",
       "search/:id": "showProvider"
     }
   });
@@ -51,16 +50,18 @@ ContactManager.module("Routers.SearchApp", function(SearchAppRouter, ContactMana
   };
 
   var API = {
-    listProviders: function(options){
-      options || (options = { page: 1 });
-      executeAction(ContactManager.SearchApp.List.Controller.listProviders , options);
-
-    },
-    listProvidersSub: function(params){
+    listProviders: function(params){
       var options = parseParams(params);
-      executeAction(ContactManager.SearchApp.List.Controller.listProvidersSub , options);
+      options || (options = { keys: {"Specialist":"All Specialities","location":"Bangkok"}, page: 1 });
+      executeAction(ContactManager.SearchApp.List.Controller.listProviders , options);
       //ProvidersApp.List.Controller.listProvidersSub(options);
       //ContactManager.execute("set:active:header", "contacts");
+    },
+
+    listProvidersfromMain: function(data){
+
+      var options = { keys: data , page: 1 };
+      executeAction(ContactManager.SearchApp.List.Controller.listProviders , options);
     },
 
     showProvider: function(id){
@@ -81,7 +82,7 @@ ContactManager.module("Routers.SearchApp", function(SearchAppRouter, ContactMana
 
   ContactManager.on("search_main:list", function(data){
     ContactManager.navigate("search");
-    API.listProviders();
+    API.listProvidersfromMain(data);
   });
 
   ContactManager.on("search:show", function(id){

@@ -4,44 +4,32 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
   var Controller = Marionette.Controller.extend({
 
     listProviders: function(options){
-
+      console.log('search_key: '+JSON.stringify(options.key));
       var layoutView = new List.Layout();
-      var searchPanel= new List.Search();
+      var searchPanel= new List.Search(options);
 
-      layoutView.on("show", function(){
-
+      layoutView.on("show", function( ){
           layoutView.panelRegion.show(searchPanel);
-          List.Controller.FetchProvider({"Specialist":"All Specialities","location":"Bangkok"} ,layoutView,options);
+
           searchPanel.on('submit:search',function(data){
-                console.log(JSON.stringify(data));
                  List.Controller.FetchProvider( data, layoutView,options);             
           })
+
+          List.Controller.FetchProvider(options.keys ,layoutView,options);
       });
 
       ContactManager.mainRegion.show(layoutView);      
-    },
-    listProvidersSub: function(options){
-
-      console.log("listProvidersSub options"+options);
-      var layoutView = new List.Layout();
-      var searchPanel= new List.Search();
-      layoutView.on("show", function(){
-          layoutView.panelRegion.show(searchPanel);
-          List.Controller.FetchProvider("ss" ,layoutView,options);
-      });
-      ContactManager.mainRegion.show(layoutView);            
     },
 
     FetchProvider:function(keysearch,layoutView,options){
 
       var loadingView = new ContactManager.Common.Views.Loading();
       layoutView.contactsRegion.show(loadingView);
-
-
-
-      console.log("keyword :"+JSON.stringify( options));
+      console.log("keysearch:"+JSON.stringify(keysearch));
       var fetchingproviders = ContactManager.request("search:entities",{ parameters: options, keys: keysearch});
        $.when(fetchingproviders).done(function(providers){
+
+             //options  = { page: 1 };
 
              console.log('feedback:'+JSON.stringify(providers));
              console.log("options.page:"+options.page);

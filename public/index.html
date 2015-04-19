@@ -128,21 +128,21 @@
     <script type="text/template" id="search-panel" >
       <form class="form-search form-inline text-center" >
           <select class="search-doc">
-              <option >All Specialities</option>
-              <option >General</option>
-              <option >Implantologists</option>
-              <option >Prosthodontists</option>
-              <option >Operative and Cosmetic Dentists</option>
-              <option >Orthodontists & Invisalign Specialist</option>
-              <option >Periodontists</option>
-              <option >Oral Surgeon</option>
+              <option value="All Specialities">All Specialities</option>
+              <option value="General">General</option>
+              <option value="Implantologists">Implantologists</option>
+              <option value="Prosthodontists">Prosthodontists</option>
+              <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
+              <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
+              <option value="Periodontists">Periodontists</option>
+              <option value="Oral Surgeon">Oral Surgeon</option>
           </select>
           <select class="search-location">
-              <option >Bangkok</option>
-              <option >Pattaya</option>
-              <option >Chiang Mai</option>
-              <option >Phuket</option>
-              <option >Krabi</option>
+              <option value="Bangkok">Bangkok</option>
+              <option value="Pattaya">Pattaya</option>
+              <option value="Chiang Mai">Chiang Mai</option>
+              <option value="Phuket">Phuket</option>
+              <option value="Krabi">Krabi</option>
           </select>
           <div class="btn-group">
               <button class="btn btn-primary btn-lg js-submit">Search</button>
@@ -374,26 +374,26 @@
               <h2 id="search-txt">Search doctors and dentists in your area</h2>
               <form class="form-search form-inline text-center" >
                   <select class="search-doc">
-                      <option >All Specialities</option>
-                      <option >General</option>
-                      <option >Implantologists</option>
-                      <option >Prosthodontists</option>
-                      <option >Operative and Cosmetic Dentists</option>
-                      <option >Orthodontists & Invisalign Specialist</option>
-                      <option >Periodontists</option>
-                      <option >Oral Surgeon</option>
+                      <option value="All Specialities">All Specialities</option>
+                      <option value="General">General</option>
+                      <option value="Implantologists">Implantologists</option>
+                      <option value="Prosthodontists">Prosthodontists</option>
+                      <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
+                      <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
+                      <option value="Periodontists">Periodontists</option>
+                      <option value="Oral Surgeon">Oral Surgeon</option>
                   </select>
                   <select class="search-location">
-                      <option >Bangkok</option>
-                      <option >Pattaya</option>
-                      <option >Chiang Mai</option>
-                      <option >Phuket</option>
-                      <option >Krabi</option>
+                      <option value="Bangkok">Bangkok</option>
+                      <option value="Pattaya">Pattaya</option>
+                      <option value="Chiang Mai">Chiang Mai</option>
+                      <option value="Phuket">Phuket</option>
+                      <option value="Krabi">Krabi</option>
                   </select>
                   <div class="btn-group">
                       <button class="btn btn-primary btn-lg js-submit">Search</button>
                   </div>
-              </form>              
+              </form>             
           </div>        
         </div>
         <br><br><br><br><br>
@@ -730,7 +730,8 @@
     <script src="./assets/js/vendor/backbone-validation.js"></script>
     <script src="./assets/js/vendor/backbone.picky.js"></script>
     <script src="./assets/js/vendor/backbone.syphon.js"></script>
-    <script src="./assets/js/vendor/backbone.localstorage.js"></script>
+    <script src="./assets/js/vendor/backbone.localstorage.js"></script> 
+    <script src="./assets/js/vendor/backbone.stickit.js"></script>
     <script src="./assets/js/vendor/backbone.marionette.js"></script>
     <script src="./assets/js/vendor/spin.js"></script>
     <script src="./assets/js/vendor/spin.jquery.js"></script>
@@ -755,9 +756,9 @@
     <script src="./assets/js/apps/search/show/show_view.js"></script>
     <script src="./assets/js/apps/search/show/show_controller.js"></script>
 
-    <script src="./assets/js/apps/about/about_app.js"></script>
-    <script src="./assets/js/apps/about/show/show_view.js"></script> 
-    <script src="./assets/js/apps/about/show/show_controller.js"></script>
+    <script src="./assets/js/apps/main/about_app.js"></script>
+    <script src="./assets/js/apps/main/show/show_view.js"></script> 
+    <script src="./assets/js/apps/main/show/show_controller.js"></script>
 
     <script src="./assets/js/apps/account/account_app.js"></script>
     <script src="./assets/js/apps/account/show/show_views.js"></script> 
