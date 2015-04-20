@@ -60,42 +60,28 @@
 
     </script>
 
-    <script type="text/template" id="provider-list-item">              
-      <div class="col-xs-12 col-sm-6 col-md-6">
-        <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 ">
-             <div class="panel panel-default">
-              <div class="row padall">
-                <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
-                    <span></span>
-                    <img src="<%- pic %>" class="img-circle"/>
-                 </div>
-                 <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
-                    <div class="clearfix">
-                        <div class="pull-left">
-                          <h4>Dr.<%- firstName %> <%- lastName %></h4>
-                          <p>
-                              <i class="glyphicon glyphicon-education"></i>
-                              <%- specialist %> Dentist
-                              <br />
-                              <i class="glyphicon glyphicon-earphone"></i>
-                              <%- phoneNumber %>
-                              <br />
-                              <small><i class="glyphicon glyphicon-map-marker">
-                             </i><%- location %>,Thailand</cite></small>
-                          </p>
-                        </div>
-                        <div class="pull-right">
-                              <a href="#searchNew/<%- id %>" class="btn btn-default js-show"><i class="glyphicon glyphicon-eye-open"></i>View Detail</a>
-                        </div>
+    <script type="text/template" id="provider-list-item">
+      <div class="row">           
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+            <img src="<%- pic %>" class="img-circle"/>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+              <div class="pull-left">
+                <h4>Dr.<%- firstName %> <%- lastName %></h4>
+                <p>
+                    <i class="glyphicon glyphicon-education"></i>
+                    <%- specialist %> Dentist
+                    <br />
+                    <i class="glyphicon glyphicon-earphone"></i>
+                    <%- phoneNumber %>
+                    <br />
+                    <small><i class="glyphicon glyphicon-map-marker">
+                    </i><%- location %>,Thailand</cite></small>
+                    </p>
                     </div>
-                    <div>
-      
+                    <div class="pull-right">
+                      <a href="#searchNew/<%- id %>" class="btn btn-default js-show"><i class="glyphicon glyphicon-eye-open"></i>View Detail</a>
                     </div>
-                 </div>
-              </div>
-             </div>
-          </div>
         </div>
       </div>
     </script>
@@ -115,14 +101,85 @@
     </script>
 
     <script type="text/template" id="provider-list-layout">
-      <div id="panel-region"></div>
-      <div class="row">
-        <div id="contacts-region" class="col-lg-6"></div>
-        <div id="map-region" class="col-lg-6"></div>
-      </div>
+        <div id="panel-region"></div>
+          <div id="contacts-region" class="col-lg-6"></div>
+          <div id="map-region" class="col-lg-6"></div>
     </script>
 
     <script type="text/template" id="search-panel" >
+
+      <div id="exTab2"> 
+        <ul class="nav nav-tabs">
+              <li class="active"><a  href="#1" data-toggle="tab">Search by Specialist</a></li>
+              <li><a href="#2" data-toggle="tab">by Doctor Name</a></li>
+              <li><a href="#3" data-toggle="tab">by Procedures</a></li>
+        </ul>
+        <div class="tab-content ">
+          <br>
+          <div class="tab-pane active" id="1">
+              <form class="form-search form-inline" >
+                  <select class="form-control" id="search-doc">
+                      <option value="All Specialities">All Specialities</option>
+                      <option value="General">General</option>
+                      <option value="Implantologists">Implantologists</option>
+                      <option value="Prosthodontists">Prosthodontists</option>
+                      <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
+                      <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
+                      <option value="Periodontists">Periodontists</option>
+                      <option value="Oral Surgeon">Oral Surgeon</option>
+                  </select>
+                  <select class="form-control" id="search-location">
+                      <option value="Bangkok">Bangkok</option>
+                      <option value="Pattaya">Pattaya</option>
+                      <option value="Chiang Mai">Chiang Mai</option>
+                      <option value="Phuket">Phuket</option>
+                      <option value="Krabi">Krabi</option>
+                  </select>
+                  <div class="btn-group">
+                      <button class="btn btn-primary js-submit">Search</button>
+                  </div>
+              </form>
+          </div>
+          <div class="tab-pane" id="2">
+              <form class="form-search form-inline" >
+                  <select class="form-control" id="search-name">
+                      <option value="All Specialities">Dr......</option>
+                      <option value="General">General</option>
+                      <option value="Implantologists">Implantologists</option>
+                      <option value="Prosthodontists">Prosthodontists</option>
+                      <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
+                      <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
+                      <option value="Periodontists">Periodontists</option>
+                      <option value="Oral Surgeon">Oral Surgeon</option>
+                  </select>
+                  <div class="btn-group">
+                      <button class="btn btn-primary js-submit">Search</button>
+                  </div>
+              </form>
+          </div>
+          <div class="tab-pane" id="3">
+              <form class="form-search form-inline" >
+                  <select class="form-control" id="search-name">
+                      <option value="All Specialities">Sick</option>
+                      <option value="General">General</option>
+                      <option value="Implantologists">Implantologists</option>
+                      <option value="Prosthodontists">Prosthodontists</option>
+                      <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
+                      <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
+                      <option value="Periodontists">Periodontists</option>
+                      <option value="Oral Surgeon">Oral Surgeon</option>
+                  </select>
+                  <div class="btn-group">
+                      <button class="btn btn-primary js-submit">Search</button>
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+      <br>
+    </script>
+
+    <script type="text/template" id="search-panel_back" >
       <form class="form-search form-inline text-center" >
           <select class="form-control" id="search-doc">
               <option value="All Specialities">All Specialities</option>
@@ -367,34 +424,81 @@
 
     <script type="text/template" id="main-view"> 
         <div class="row">
+          <h2 id="search-txt" class="text-center">Search doctors and dentists in your area</h2>
+          <br><br>
           <div class="well search-main text-center">
-              <h2 id="search-txt">Search doctors and dentists in your area</h2>
-              <br><br>
-              <form class="form-search form-inline text-center" >
-                  <select class="search-doc form-control">
-                      <option value="All Specialities">All Specialities</option>
-                      <option value="General">General</option>
-                      <option value="Implantologists">Implantologists</option>
-                      <option value="Prosthodontists">Prosthodontists</option>
-                      <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
-                      <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
-                      <option value="Periodontists">Periodontists</option>
-                      <option value="Oral Surgeon">Oral Surgeon</option>
-                  </select>
-                  <select class="search-location form-control">
-                      <option value="Bangkok">Bangkok</option>
-                      <option value="Pattaya">Pattaya</option>
-                      <option value="Chiang Mai">Chiang Mai</option>
-                      <option value="Phuket">Phuket</option>
-                      <option value="Krabi">Krabi</option>
-                  </select>
-                  <div class="btn-group">
-                      <button class="btn btn-primary btn-lg js-submit js-main">Search</button>
-                  </div>
-              </form>             
+                    <div id="exTab2"> 
+                            <ul class="nav nav-tabs">
+                                  <li class="active"><a  href="#1" data-toggle="tab">Search by Specialist</a></li>
+                                  <li><a href="#2" data-toggle="tab">by Doctor Name</a></li>
+                                  <li><a href="#3" data-toggle="tab">by Procedures</a></li>
+                            </ul>
+                            <div class="tab-content ">
+                              <br>
+                              <div class="tab-pane active" id="1">
+                                  <form class="form-search form-inline" >
+                                      <select class="form-control" id="search-doc">
+                                          <option value="All Specialities">All Specialities</option>
+                                          <option value="General">General</option>
+                                          <option value="Implantologists">Implantologists</option>
+                                          <option value="Prosthodontists">Prosthodontists</option>
+                                          <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
+                                          <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
+                                          <option value="Periodontists">Periodontists</option>
+                                          <option value="Oral Surgeon">Oral Surgeon</option>
+                                      </select>
+                                      <select class="form-control" id="search-location">
+                                          <option value="Bangkok">Bangkok</option>
+                                          <option value="Pattaya">Pattaya</option>
+                                          <option value="Chiang Mai">Chiang Mai</option>
+                                          <option value="Phuket">Phuket</option>
+                                          <option value="Krabi">Krabi</option>
+                                      </select>
+                                      <div class="btn-group">
+                                          <button class="btn btn-primary js-submit">Search</button>
+                                      </div>
+                                  </form>
+                              </div>
+                              <div class="tab-pane" id="2">
+                                  <form class="form-search form-inline" >
+                                      <select class="form-control" id="search-name">
+                                          <option value="All Specialities">Dr......</option>
+                                          <option value="General">General</option>
+                                          <option value="Implantologists">Implantologists</option>
+                                          <option value="Prosthodontists">Prosthodontists</option>
+                                          <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
+                                          <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
+                                          <option value="Periodontists">Periodontists</option>
+                                          <option value="Oral Surgeon">Oral Surgeon</option>
+                                      </select>
+                                      <div class="btn-group">
+                                          <button class="btn btn-primary js-submit">Search</button>
+                                      </div>
+                                  </form>
+                              </div>
+                              <div class="tab-pane" id="3">
+                                  <form class="form-search form-inline" >
+                                      <select class="form-control" id="search-name">
+                                          <option value="All Specialities">Sick</option>
+                                          <option value="General">General</option>
+                                          <option value="Implantologists">Implantologists</option>
+                                          <option value="Prosthodontists">Prosthodontists</option>
+                                          <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
+                                          <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
+                                          <option value="Periodontists">Periodontists</option>
+                                          <option value="Oral Surgeon">Oral Surgeon</option>
+                                      </select>
+                                      <div class="btn-group">
+                                          <button class="btn btn-primary js-submit">Search</button>
+                                      </div>
+                                  </form>
+                              </div>
+                            </div>
+                          </div>        
           </div>        
         </div>
         <br><br><br><br><br>
+        <hr>
         <div class="row">
           <div class="col-md-4">
             <div class="panel panel-default">

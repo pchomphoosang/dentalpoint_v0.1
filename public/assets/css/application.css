@@ -42,9 +42,9 @@ navbar-inverse .navbar-nav>li>a:focus,
 }
 
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
-color: #3f81c7;
-text-decoration: none;
-background-color: #f5f5f5;
+  color: #3f81c7;
+  text-decoration: none;
+  background-color: #f5f5f5;
 }
 /* provider-list-items*/
 
@@ -79,12 +79,6 @@ background-color: #f5f5f5;
         -webkit-transition: width 2s; /* Safari */
         transition: width 2s;
         -webkit-transition-timing-function: linear;
-    }
-
-    .padall:hover {
-        width: 100%;
-        height: 100%;
-
     }
 
     .padbig {
@@ -248,14 +242,14 @@ background-color: #f5f5f5;
 .search-main {
   margin-left: auto;
   margin-right: auto;
-  width: 70%;
+  width: 50%;
   background-color: white;
   height: 200px;
   
   top: 0px;
   z-index: 2;
 }
-.search-main > h2 {
+#search-txt {
  color: #337ab7;
 }
 .search-main > p > a  {
@@ -265,19 +259,17 @@ background-color: #f5f5f5;
 
 /**panel-search **/
 
-#search-panel {
-  position: fixed;
-  top: 30px;
-}
-
-#map-region {
-
-}
-
 .provider-list-item {
-  margin-right:auto;
-  margin-left:auto;
   background: white;
+  width: 40%;
+  height:150px;
+  margin-top: 10px
+
+  -webkit-transition: width 2s; /* Safari */
+  transition: width 2s;
+}
+.provider-list-item:hover {
+  width: 45%;
 }
 
 .provider-list {
@@ -305,16 +297,9 @@ background-color: #f5f5f5;
     border-right-width:5px;
   }
 
-  .map-frame.affix-top {
-    position: static;
-    margin-top:10px;
-    width:500px;
-    height:200px;
-  }
-  
-  .map-frame.affix {
+  .map-frame{
     position: fixed;
-    margin-top:10px;
+    margin-top:70px;
     top:70px;
     width:500px;
     height:200px;

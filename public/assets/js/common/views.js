@@ -172,13 +172,13 @@ ContactManager.module("Common.Views", function(Views, ContactManager, Backbone, 
     onShow: function(){
 
         this.init_map( );
-
+      /*
         this.$el.affix({
           offset: {
             top: 30
           }
         });
-      
+      */
     },
 
     hightlight: function( model ){

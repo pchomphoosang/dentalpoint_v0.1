@@ -1,14 +1,14 @@
 ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone, Marionette, $, _){
     List.Contact = Marionette.ItemView.extend({
     tagName: "div",
-    className:"row provider-list-item",
+    className:"provider-list-item",
     template: "#provider-list-item",
 
     events: {
       "click": "highlightName",
       "click a.js-show": "showClicked",
       "click button.js-delete": "deleteClicked",
-      "mouseover .row": "hover"
+      "mouseover .row ": "hover"
     },
     hover: function(e){
       e.preventDefault();
@@ -73,7 +73,7 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
 
   List.Search = Marionette.ItemView.extend({
     template: "#search-panel",
-    className:"panel panel-default panel-search ",
+    className:"panel-search ",
     events: {
       "click button.btn": "searchClicked"
     },
@@ -93,9 +93,8 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
       });
 */ 
      if (this.keys) {
-        console.log("this.keys:::"+JSON.stringify(this.keys) );
-        $("select[class=form-control] option[value='"+ this.keys.Specialist +"']").attr('selected', 'selected');
 
+        $("select[class=form-control] option[value='"+ this.keys.Specialist +"']").attr('selected', 'selected');
         $("select[class=form-control] option[value='"+ this.keys.location +"']").attr('selected', 'selected');
      }
     },

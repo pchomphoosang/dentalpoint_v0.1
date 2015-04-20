@@ -9,8 +9,8 @@ ContactManager.module("MainApp.Show", function(Show, ContactManager, Backbone, M
     searchClicked: function(e){
       e.preventDefault();
       e.stopPropagation();
-      var expert = this.$(".search-doc option:selected").text();
-      var keylocate = this.$(".search-location option:selected").text();
+      var expert = this.$("#search-doc option:selected").text();
+      var keylocate = this.$("#search-location option:selected").text();
       var  data = {Specialist : expert , location: keylocate};
       this.trigger("submit:search", data );
     }
