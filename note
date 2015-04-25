@@ -1,0 +1,16 @@
+https://s3-ap-southeast-1.amazonaws.com/chompoo.patientsinterest.picbucket/amy.jpg
+
+
+
+how to run in production
+NODE_ENV=production node app
+
+
+$ sudo apt-get install siege
+
+
+
+
+
+
+

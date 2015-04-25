@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="_csrf" content="{{csrfToken}}">
     <title>Pawatify</title>
     <link href="./assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="./assets/css/jquery-ui.css" rel="stylesheet">
@@ -176,32 +177,7 @@
           </div>
         </div>
       </div>
-      <br>
-    </script>
-
-    <script type="text/template" id="search-panel_back" >
-      <form class="form-search form-inline text-center" >
-          <select class="form-control" id="search-doc">
-              <option value="All Specialities">All Specialities</option>
-              <option value="General">General</option>
-              <option value="Implantologists">Implantologists</option>
-              <option value="Prosthodontists">Prosthodontists</option>
-              <option value="Operative and Cosmetic Dentists">Operative and Cosmetic Dentists</option>
-              <option value="Orthodontists & Invisalign Specialist">Orthodontists & Invisalign Specialist</option>
-              <option value="Periodontists">Periodontists</option>
-              <option value="Oral Surgeon">Oral Surgeon</option>
-          </select>
-          <select class="form-control" id="search-location">
-              <option value="Bangkok">Bangkok</option>
-              <option value="Pattaya">Pattaya</option>
-              <option value="Chiang Mai">Chiang Mai</option>
-              <option value="Phuket">Phuket</option>
-              <option value="Krabi">Krabi</option>
-          </select>
-          <div class="btn-group">
-              <button class="btn btn-primary js-submit">Search</button>
-          </div>
-      </form>
+      <hr>
     </script>
 
     <script type="text/template" id="provider-list-none">
