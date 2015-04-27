@@ -1,44 +1,42 @@
 /**
  * Module dependencies.
  */
-var express = require('express');
-var cookieParser = require('cookie-parser');
-var compress = require('compression');
-var session = require('express-session');
-var bodyParser = require('body-parser');
-var logger = require('morgan');
-var errorHandler = require('errorhandler');
-var csrf = require('csurf');
-var notifier = require('node-notifier')
+var express = require('express'),
+    cookieParser = require('cookie-parser'),
+    compress = require('compression'),
+    session = require('express-session'),
+    bodyParser = require('body-parser'),
+    logger = require('morgan'),
+    errorHandler = require('errorhandler');
+    csrf = require('csurf');
 
-var methodOverride = require('method-override');
-var multipart = require('connect-multiparty');
-
+var methodOverride = require('method-override'),
+    multipart = require('connect-multiparty');
 
 var _ = require('lodash');
 var MongoStore = require('connect-mongo')(session);
 
-var path = require('path');
-var mongoose = require('mongoose');
-var passport = require('passport');
-var expressValidator = require('express-validator');
-var connectAssets = require('connect-assets');
+var path = require('path'),
+    mongoose = require('mongoose'), 
+    passport = require('passport'),
+    connectAssets = require('connect-assets');
 
 /**
  * Controllers (route handlers).
  */
-var homeController = require('./controllers/home');
-var userController = require('./controllers/user');
-var apiController = require('./controllers/api');
-var contactController = require('./controllers/contact');
-var providerController = require('./controllers/provider');
-var uploadController = require('./controllers/upload');
+var homeController = require('./controllers/home'),
+    userController = require('./controllers/user'),
+    apiController = require('./controllers/api'),
+    contactController = require('./controllers/contact'),
+    providerController = require('./controllers/provider'),
+    uploadController = require('./controllers/upload'),
+    notifyController = require('./controllers/notify');
 
 /**
  * API keys and Passport configuration.
  */
-var secrets = require('./config/secrets');
-var passportConf = require('./config/passport');
+var secrets = require('./config/secrets'),
+    passportConf = require('./config/passport');
 
 /**
  * Create Express server.
@@ -58,9 +56,9 @@ mongoose.connection.on('error', function() {
  */
 app.set('port', process.env.PORT || 3000);
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
 app.engine('html', require('hbs').__express);
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(compress());
 app.use(connectAssets({
@@ -87,12 +85,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-/*
-app.use(function(req, res, next) {
-  if (/api/i.test(req.path)) req.session.returnTo = req.path;
-  next();
-});
-*/
 
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
 
@@ -119,42 +111,35 @@ app.post('/account/delete', passportConf.isAuthenticated, userController.postDel
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
 app.post('/api/uploads', multipart(), uploadController.upload);
+
 /**
  * API examples routes.
  */
-
 app.get('/api', apiController.getApi);
 
 /**
  * API Testing API.
  */
-
 app.get('/providers',  providerController.getservice); 
 app.post('/providers', providerController.insertprovider);
 app.delete('/providers', providerController.deleteservice);
 
 app.get('/search', providerController.searchprovider); 
 app.get('/search/:providerId', providerController.getprovider); 
-//app.get('/providers', providerController.getprovider);    // get result for search
-//app.put('/providers/:userid', providerController.modifyproviderid);
-
 
 app.get('/api', apiController.getApi);
-
 app.get('/api/lastfm', apiController.getLastfm);
-
 app.get('/api/foursquare', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getFoursquare);
 app.get('/api/tumblr', passportConf.isAuthenticated, passportConf.isAuthorized, apiController.getTumblr);
 app.get('/api/paypal/success', apiController.getPayPalSuccess);
 app.get('/api/paypal/cancel', apiController.getPayPalCancel);
 app.get('/api/lob', apiController.getLob);
 
+
 /**
  * OAuth authentication routes. (Sign in)
  */
-
 app.get('/auth/facebook', passport.authenticate('facebook', { scope: ['email', 'user_location'] }));
-
 app.get('/auth/facebook/callback', passport.authenticate('facebook'), 
   function(req, res) {
     res.redirect('/#account/sociallogin/'+req.user._id);
@@ -162,7 +147,7 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook'),
 
 app.get('/auth/google', passport.authenticate('google', { scope: 'profile email' }));
 app.get('/auth/google/callback', passport.authenticate('google', { failureRedirect: '/login' }), function(req, res) {
-  res.redirect(req.session.returnTo || '/');
+  //res.redirect(req.session.returnTo || '/');
 });
 
 
@@ -170,7 +155,7 @@ app.get('/auth/google/callback', passport.authenticate('google', { failureRedire
  * Error Handler.
  */
 if (process.env.NODE_ENV === 'development') {
-  app.use(errorHandler());
+  app.use(errorHandler({log : notifyController.errorNotification}));
 }
 
 /**

@@ -49,7 +49,6 @@ ContactManager.module("ContactsApp.List", function(List, ContactManager, Backbon
                 });
 
                 view.on("form:submit", function(data){
-
                   var savingContact = newContact.save(data);
                   if(savingContact){
                      $.when(savingContact).done(function(){

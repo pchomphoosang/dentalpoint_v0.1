@@ -1,25 +1,28 @@
-var secrets = require('../config/secrets');
-var fs = require('fs');
-var S3FS = require('s3fs');
-//var endpoint = 'chompoo.patientsinterest.picbucket.s3-website-ap-southeast-1.amazonaws.com';
-var s3client = new S3FS('chompoo.patientsinterest.picbucket', {
-    accessKeyId: 'AKIAJFUKYA7ZOT2P6HOA',
-    secretAccessKey: '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'
- });
-
+var secrets = require('../config/secrets'),
+    fs = require('fs'),
+    aws = require('aws-sdk');
 
 exports.upload = function(req, res) {
-	var file = req.files.photo;
-	console.log(file);
-	var stream = fs.createReadStream(file.path);
+	var file = req.files.photo,
+        stream = fs.createReadStream(file.path);
 
-   	return s3client.writeFile(file.originalFilename, stream).then(function () {	
-        fs.unlink(file.path, function (err) {
+    aws.config.update({accessKeyId: secrets.aws.accessKeyId, secretAccessKey: secrets.aws.secretAccessKey });
+    aws.config.region = secrets.aws.region;
+
+    var p ={Bucket: secrets.aws.bucket, Key: Date.now()+file.originalFilename, ContentType: file.type},
+        s3obj  = new aws.S3({params: p });
+    
+    s3obj.upload({Body: stream}).send(function(err, data) {
+            var response = {};
+            console.log(data);
             if (err) {
-                console.error(err);
+                response.errors = {phoneNumber : "upload failure"}
+                res.status(422);
+            } else {
+                response.pic = data.Location;
             }
-        });
-        res.status(200).end();
+            return  res.json(response);
     });
+
 
 };
