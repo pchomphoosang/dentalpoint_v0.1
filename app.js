@@ -7,6 +7,7 @@ var express = require('express'),
     session = require('express-session'),
     bodyParser = require('body-parser'),
     logger = require('morgan'),
+    expressValidator = require('express-validator'),
     errorHandler = require('errorhandler');
     csrf = require('csurf');
 
@@ -68,6 +69,7 @@ app.use(connectAssets({
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressValidator());
 
 app.use(methodOverride());
 app.use(cookieParser());

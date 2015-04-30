@@ -42,6 +42,9 @@ ContactManager.module("ContactsApp.New", function(New, ContactManager, Backbone,
               },false);
 
               this.xhr.addEventListener('load', function(e) {
+                          // When the request has *successfully* completed.
+                          // Even if the server hasn't responded that it finished.
+                          console.log("upload success");
                           that.$('.text-danger').append('<span class="label label-success">Finished upload</span>');
                           that.$('.upload-img').addClass('hide');
               },false);
@@ -56,12 +59,11 @@ ContactManager.module("ContactsApp.New", function(New, ContactManager, Backbone,
               this.xhr.onload = function(e) {
               	  
                	  if(this.status==200){
-                    console.log("Pawatuploadfile:success"+ this.response);
-					          that.trigger("uploadfile:success", JSON.parse(this.response));
+					that.trigger("uploadfile:success", JSON.parse(this.response));
                	  }else{
                	  	console.log("this.error: "+this.response);
                	  }
-			        };
+			  };
 
                this.xhr.send(formData);
           }
@@ -109,8 +111,6 @@ ContactManager.module("ContactsApp.New", function(New, ContactManager, Backbone,
         });
         this.view.render();
         this.view.on("uploadfile:success", function(data){
-          console.log("uploadfile:success");
-          console.log("KLLLLL:" + JSON.stringify(data));
         	that.pic = data.pic;
       	});
         $tbody.append(this.view.el);

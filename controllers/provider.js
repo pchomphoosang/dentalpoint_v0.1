@@ -82,43 +82,27 @@ exports.deleteservice = function(req, res, next) {
     }                 
   });
 };
-/*
-//  Todo need to modify  search keyword
+
 exports.searchprovider = function(req, res, next){
 
-  console.log('postget receive Query: '+JSON.stringify(req.query));
-  console.log('postget receive expert: '+JSON.stringify(req.query.specialist));
-  console.log('postget receive  location: '+JSON.stringify(req.query.location));
-  // {specialist: req.query.specialist, location:req.query.location }
-  Provider.find(function(err, providers) {
-      if (err) return next(err);
+  // validation
+  req.checkQuery('offset', 'Invalid offset').isInt();
+  req.checkQuery('count', 'Invalid count').isInt();
+  req.checkQuery('specialist', 'Invalid specialist').notEmpty().isAlpha;
+  req.checkQuery('location', 'Invalid location').notEmpty().isAlpha;
+  var errors = req.validationErrors();
 
-      if (providers) {
-        var response = [];
-        _.each(providers, function(provider){
+  var field  = {};
+  var response = {};
 
-             var prov = _.pick(provider,['firstName','lastName','phoneNumber','pic','location','specialist','maploc']);
-             prov.id  = provider._id
-             prov.updatedAt = provider.updatedAt.toString();
-             response.push(prov);
-        })
-        return res.json(response);
-      }
-    });
-
-}
-*/
-// skip / limit
-//resultCount":503
-// • filter:
-// location
-exports.searchprovider = function(req, res, next){
+  if (errors) {
+     response.errors = {msg : errors}
+     return res.status(422).send(response);
+  }
 
   var offset = parseInt(req.query.offset);
   var count  = parseInt(req.query.count);
 
-  var field  = {};
-  var response = {};
   var query  = {specialist: req.query.specialist, location:req.query.location };
 
   if (query.specialist.indexOf("All") > -1 ) {
@@ -149,85 +133,28 @@ exports.searchprovider = function(req, res, next){
   }]);
   
 }
-/*
-  Provider.aggregate([
-    {$match:
-      {
-         location : "Bangkok"
-      }
-    },
-    {$project:
-      {
-        _id: 1, firstName: 1, phoneNumber:1, specialist:1,
-        procedures:1, address1:1, address2:1,location:1,
-        maploc:1, pic:1,type: {$literal: 1}
-      }
-    },
-    {$skip:offset},
-    {$limit:count},
-    {$group:
-      {
-        _id:'$type',
-        resultCount:{$sum:1},
-        test:'$type',
-        result:{
-          $addToSet: {
-              id: "$_id",
-              firstName:"$firstName",
-              phoneNumber:"$phoneNumber",
-              specialist:"$specialist",
-              procedures:"$procedures",
-              address1:"$address1",
-              address2:"$address2",
-              location:"$location",
-              maploc:"$maploc",
-              pic:"$pic",
-          },
-
-        }
-      }
-    }
-  ],function(err, result){
-      var response = {};
-      response = _.pick(result[0],['resultCount','result']);
-      console.log('response:'+JSON.stringify(response));
-      return res.json(response);
-  })
-
-*/
-
-  /*
-  Provider.find(function(err, providers) {
-      if (err) return next(err);
-
-      if (providers) {
-        var response = [];
-        _.each(providers, function(provider){
-
-             var prov = _.pick(provider,['firstName','lastName','phoneNumber','pic','location','specialist','maploc']);
-             prov.id  = provider._id
-             prov.updatedAt = provider.updatedAt.toString();
-             response.push(prov);
-        })
-        //return res.json(response);
-      }
-    });
-    */
-
 
 //  Todo need to modify  search keyword
 exports.getprovider = function(req, res, next){
 
-  console.log('postget receive req.params: '+JSON.stringify(req.params));
-  console.log('postget receive expert: '+JSON.stringify(req.params.providerId));
-  // {specialist: req.query.specialist, location:req.query.location }
+  // validation
+  req.checkParams('providerId', 'provider does not exist').notEmpty();
+  var errors = req.validationErrors();
+
+  var response = {};
+  if (errors) {
+      console.log('pawat chomphoosang:'+ errors);
+     response.errors = {msg : errors}
+     return res.status(422).send(response);
+  }
+
 
   Provider.findOne({ _id: req.params.providerId}, function(err, provider) {
-      var response ={};
+
       if (err) return next(err);
 
       if (!provider) {
-        response.errors = {msg : " provider does not exist"}
+        response.errors = {msg : "provider does not exist"}
         return res.status(422).send(response);
 
       }else {
