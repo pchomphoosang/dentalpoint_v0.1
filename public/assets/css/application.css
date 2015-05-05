@@ -1,17 +1,48 @@
-html {
-  height: 100%;
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  padding-top: 60px; /* 60px to make the container make room for the navigation bar */
+    height: 100%;
+}
+
+html {
+    height: 100%;
+}
+
+/*Content block styles*/
+.general_content_styles {
+  margin-top:50px;
+  max-width: 700px;
   min-height: 100%;
-}
-
-hr {
-  margin-top: 20px;
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.28);
+  background: #ffffff;
   margin-bottom: 0px;
-
 }
+
+.search_tittle {
+  font-size: 24px;
+  font-weight: 100;
+  color: #6ABAB1;
+  background: #f7f7f7;
+  margin: 0 -15px;
+  padding: 12px 15px 25px;
+  margin-top: -25px;
+  border-bottom: 1px solid #e9e9e9;
+  border-top: 1px solid #e9e9e9;
+}
+
+.search_tittle span {
+  color: #c3c3c3;
+}
+
+.search_form {
+    margin-top: 10px;
+}
+
 
 .js-main {
   line-height: 0.85;
@@ -292,19 +323,23 @@ navbar-inverse .navbar-nav>li>a:focus,
     border-right-width:5px;
   }
 
-  .map-frame{
-        position: fixed;
-        margin-top:30px;
-        top:35px;
-  }
+.map {
+    min-width: 50%;
+    min-height: 100%;
+    right: 0px;
+    background: #ebe6dc;
+    position: fixed !important;
+}
 
-  .map {
-        min-width: 200px;
-        min-height: 400px;
-
-        width: 100%;
-        height: 100%;
-  }
+.loader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url('ajax-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+}
 
 /*
 .panel-search {
