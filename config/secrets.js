@@ -21,10 +21,10 @@
 
 module.exports = {
   aws:{
-    bucket: 'chompoo.patientsinterest.picbucket',
-    region: 'ap-southeast-1',
-    accessKeyId: 'AKIAIH5OPCPWDYU6MG6Q' , 
-    secretAccessKey: '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'
+    bucket: 'hello',
+    region: 'hello',
+    accessKeyId: 'hello' , 
+    secretAccessKey: 'hello'
 
   },
   // mongodb://<dbuser>:<dbpassword>@ds061308.mongolab.com:61308/testpawat
