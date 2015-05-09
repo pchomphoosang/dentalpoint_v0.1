@@ -14,20 +14,11 @@
     <link href="./assets/css/application.css" rel="stylesheet">
 
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCsbzuJDUEOoq-jS1HO-LUXW4qo0gW9FNs&sensor=false"></script>
-    <!--Your map settings script-->
-    <script src="./assets/js/common/map.js"></script>
   </head>
-  <body onload="initialize()">
+  <body>
       <div class="loader"></div>
       <div id="header-region"></div>
-      <div id="map_canvas" class="map"></div>
-
-        
-        <!--Content-->
-        <div class="col-md-11 general_content_styles vcard" id="cont">
-            <div id="main-region" class="container"></div>
-        </div>
-      
+      <div id="main-region" class='container'></div>      
       <div id="dialog-region"></div>
 
 
@@ -104,13 +95,13 @@
     </script>
 
     <script type="text/template" id="map-view">
-        <div id="map" class="map"></div>
+        <div id="map_canvas" class="map"></div>
     </script>
 
     <script type="text/template" id="provider-list-layout">
         <div id="panel-region"></div>
-          <div id="contacts-region" class="col-lg-6"></div>
-          <div id="map-region" class="col-lg-6"></div>
+        <div id="contacts-region" class="col-lg-6"></div>
+        <div id="map-region" class="map"></div>
     </script>
 
     <script type="text/template" id="search-panel" >
@@ -801,7 +792,6 @@
       </form>
     </script>
 
-    <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     <script src="./assets/js/vendor/jquery.js"></script>
     <script type="text/javascript">
     $(window).load(function() {

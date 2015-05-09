@@ -63,7 +63,6 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
 
   List.Layout = Marionette.LayoutView.extend({
     template: "#provider-list-layout",
-
     regions: {
       panelRegion: "#panel-region",
       contactsRegion: "#contacts-region",

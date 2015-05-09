@@ -69,7 +69,6 @@ ContactManager.module("SearchApp.List", function(List, ContactManager, Backbone,
              providersListView.on("childview:search:maker", function(childView, model){
                 mapView.hightlight(model);
              });
-
              layoutView.mapRegion.show(mapView);   
              layoutView.contactsRegion.show(providersListView);                
        });
