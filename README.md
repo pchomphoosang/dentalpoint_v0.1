@@ -1,7 +1,6 @@
 Notice
 -----------------
-We adopt the initiative of the denatl project from 
-	https://github.com/sahat/hackathon-starter
+
 
 Table of Contents
 -----------------
