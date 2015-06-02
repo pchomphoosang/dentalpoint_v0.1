@@ -8,7 +8,7 @@ describe('GET /', function() {
       .expect(200, done);
   });
 });
-
+// testing//
 describe('GET /login', function() {
   it('should return 200 OK', function(done) {
     request(app)
